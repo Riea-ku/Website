@@ -77,24 +77,25 @@
         .logo {
             display: flex;
             align-items: center;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 800;
             color: var(--white);
         }
         
         .logo-dot {
             display: inline-block;
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 16px;
             background: var(--purple);
             border-radius: 50%;
-            margin-left: 8px;
-            box-shadow: 0 0 10px var(--purple);
+            margin-left: 10px;
+            box-shadow: 0 0 15px var(--purple);
         }
         
         .nav-links {
             display: flex;
             list-style: none;
+            align-items: center;
         }
         
         .nav-links li {
@@ -189,19 +190,25 @@
             margin: 0 auto;
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            font-weight: 800;
-            background: linear-gradient(to right, var(--white) 0%, var(--turquoise) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero-box {
+            background: linear-gradient(145deg, var(--dark-purple), var(--gray));
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
         }
         
-        .hero p {
+        .hero-box h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            font-weight: 700;
+        }
+        
+        .hero-box p {
             font-size: 1.25rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             color: var(--light-gray);
         }
         
@@ -251,8 +258,18 @@
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100px;
+            transition: all 0.5s ease;
+            width: 120px;
+            opacity: 1;
+        }
+        
+        .feature-icons:not(:hover) .feature-icon {
+            opacity: 1;
+        }
+        
+        .feature-icons:hover .feature-icon:not(:hover) {
+            opacity: 0.3;
+            transform: scale(0.9);
         }
         
         .feature-icon i {
@@ -269,7 +286,7 @@
             border-radius: 50%;
         }
         
-        .feature-icon.active i {
+        .feature-icon:hover i {
             transform: scale(1.2);
             background: var(--gradient);
             color: var(--black);
@@ -295,11 +312,13 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 0 20px;
+            pointer-events: none;
         }
         
         .feature-content.active {
             opacity: 1;
             transform: translateY(0);
+            pointer-events: auto;
         }
         
         .feature-content h3 {
@@ -368,8 +387,18 @@
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100px;
+            transition: all 0.5s ease;
+            width: 120px;
+            opacity: 1;
+        }
+        
+        .solution-icons:not(:hover) .solution-icon {
+            opacity: 1;
+        }
+        
+        .solution-icons:hover .solution-icon:not(:hover) {
+            opacity: 0.3;
+            transform: scale(0.9);
         }
         
         .solution-icon i {
@@ -386,7 +415,7 @@
             border-radius: 50%;
         }
         
-        .solution-icon.active i {
+        .solution-icon:hover i {
             transform: scale(1.2);
             background: var(--gradient);
             color: var(--black);
@@ -412,11 +441,13 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 0 20px;
+            pointer-events: none;
         }
         
         .solution-content-text.active {
             opacity: 1;
             transform: translateY(0);
+            pointer-events: auto;
         }
         
         .solution-content-text h3 {
@@ -549,8 +580,8 @@
         
         /* Responsive */
         @media (max-width: 968px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero-box h1 {
+                font-size: 2rem;
             }
             
             .feature-icons, .solution-icons {
@@ -558,7 +589,7 @@
             }
             
             .feature-icon, .solution-icon {
-                width: 80px;
+                width: 100px;
             }
             
             .feature-icon i, .solution-icon i {
@@ -573,8 +604,8 @@
                 display: none;
             }
             
-            .hero h1 {
-                font-size: 2rem;
+            .hero-box h1 {
+                font-size: 1.8rem;
             }
             
             .feature-icons, .solution-icons {
@@ -603,6 +634,7 @@
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#solution">How It Works</a></li>
+                    <li><a href="#demo">Demo</a></li>
                     <li><a href="#contact" class="btn">Contact Us</a></li>
                 </ul>
             </nav>
@@ -613,9 +645,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Predictive Maintenance for Agriculture</h1>
-                <p>From Reactive Breakdowns to Proactive Intelligence. Providentia is the AI-powered predictive maintenance platform that prevents equipment failures before they happen.</p>
-                <a href="#contact" class="btn">Contact Us</a>
+                <div class="hero-box">
+                    <h1>Predictive Maintenance for Agriculture</h1>
+                    <p>From Reactive Breakdowns to Proactive Intelligence. Providentia is the AI-powered predictive maintenance platform that prevents equipment failures before they happen.</p>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
             </div>
         </div>
     </section>
@@ -630,7 +664,7 @@
             
             <div class="features-interactive">
                 <div class="feature-icons">
-                    <div class="feature-icon active" data-index="0">
+                    <div class="feature-icon" data-index="0">
                         <i class="fas fa-brain"></i>
                         <h3>Predictive Failure Detection</h3>
                     </div>
@@ -656,7 +690,7 @@
                     </div>
                 </div>
                 
-                <div class="feature-content active" data-index="0">
+                <div class="feature-content" data-index="0">
                     <h3>Predictive Failure Detection</h3>
                     <p>AI-powered predictions that identify equipment issues before they cause breakdowns</p>
                 </div>
@@ -696,7 +730,7 @@
                 
                 <div class="solution-interactive">
                     <div class="solution-icons">
-                        <div class="solution-icon active" data-index="0">
+                        <div class="solution-icon" data-index="0">
                             <i class="fas fa-mobile-alt"></i>
                             <h3>Lives in your pocket</h3>
                         </div>
@@ -710,7 +744,7 @@
                         </div>
                     </div>
                     
-                    <div class="solution-content-text active" data-index="0">
+                    <div class="solution-content-text" data-index="0">
                         <h3>Lives in your pocket</h3>
                         <p>Mobile-first design that works where you work</p>
                     </div>
@@ -802,12 +836,10 @@
             icon.addEventListener('mouseenter', function() {
                 const index = this.getAttribute('data-index');
                 
-                // Remove active class from all icons and contents
-                featureIcons.forEach(i => i.classList.remove('active'));
+                // Remove active class from all contents
                 featureContents.forEach(c => c.classList.remove('active'));
                 
-                // Add active class to current icon and content
-                this.classList.add('active');
+                // Add active class to current content
                 document.querySelector(`.feature-content[data-index="${index}"]`).classList.add('active');
             });
         });
@@ -820,14 +852,24 @@
             icon.addEventListener('mouseenter', function() {
                 const index = this.getAttribute('data-index');
                 
-                // Remove active class from all icons and contents
-                solutionIcons.forEach(i => i.classList.remove('active'));
+                // Remove active class from all contents
                 solutionContents.forEach(c => c.classList.remove('active'));
                 
-                // Add active class to current icon and content
-                this.classList.add('active');
+                // Add active class to current content
                 document.querySelector(`.solution-content-text[data-index="${index}"]`).classList.add('active');
             });
+        });
+        
+        // Reset content when mouse leaves the interactive area
+        const featureInteractive = document.querySelector('.features-interactive');
+        const solutionInteractive = document.querySelector('.solution-interactive');
+        
+        featureInteractive.addEventListener('mouseleave', function() {
+            featureContents.forEach(c => c.classList.remove('active'));
+        });
+        
+        solutionInteractive.addEventListener('mouseleave', function() {
+            solutionContents.forEach(c => c.classList.remove('active'));
         });
     </script>
 </body>
