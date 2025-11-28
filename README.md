@@ -75,16 +75,21 @@
         }
         
         .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--turquoise);
             display: flex;
             align-items: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--white);
         }
         
-        .logo i {
-            margin-right: 10px;
-            font-size: 24px;
+        .logo-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: var(--purple);
+            border-radius: 50%;
+            margin-left: 8px;
+            box-shadow: 0 0 10px var(--purple);
         }
         
         .nav-links {
@@ -163,6 +168,7 @@
             padding: 180px 0 100px;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
         
         .hero::before {
@@ -177,17 +183,10 @@
         }
         
         .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             position: relative;
             z-index: 1;
-        }
-        
-        .hero-text {
-            flex: 1;
-            padding-right: 50px;
-            animation: fadeInUp 1s ease;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .hero h1 {
@@ -204,73 +203,9 @@
             font-size: 1.25rem;
             margin-bottom: 40px;
             color: var(--light-gray);
-            max-width: 600px;
         }
         
-        .hero-image {
-            flex: 1;
-            text-align: center;
-            animation: fadeIn 1.5s ease;
-        }
-        
-        .dashboard-preview {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-            transition: transform 0.5s ease;
-        }
-        
-        .dashboard-preview:hover {
-            transform: perspective(1000px) rotateY(0) rotateX(0);
-        }
-        
-        /* Stats Section */
-        .stats {
-            background-color: var(--dark-gray);
-            padding: 80px 0;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .stat-icon {
-            font-size: 2.5rem;
-            color: var(--turquoise);
-            margin-bottom: 15px;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .stat-text {
-            color: var(--light-gray);
-            font-size: 0.9rem;
-        }
-        
-        /* Features Section */
+        /* Interactive Features Section */
         .features {
             padding: 100px 0;
             background-color: var(--black);
@@ -295,59 +230,87 @@
             font-size: 1.1rem;
         }
         
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background: linear-gradient(145deg, var(--dark-purple), var(--gray));
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+        .features-interactive {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
             position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 300px;
         }
         
-        .feature-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        .feature-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            transition: all 0.5s ease;
         }
         
         .feature-icon {
-            background: rgba(0, 229, 196, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100px;
+        }
+        
+        .feature-icon i {
+            font-size: 2.5rem;
             color: var(--turquoise);
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            background: rgba(0, 229, 196, 0.1);
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            font-size: 28px;
+            border-radius: 50%;
         }
         
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        .feature-icon.active i {
+            transform: scale(1.2);
+            background: var(--gradient);
+            color: var(--black);
+            box-shadow: 0 0 20px rgba(0, 229, 196, 0.5);
+        }
+        
+        .feature-icon h3 {
+            font-size: 1rem;
             color: var(--white);
+            text-align: center;
+            transition: all 0.3s ease;
         }
         
-        .feature-card p {
+        .feature-content {
+            position: absolute;
+            top: 120px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .feature-content.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--turquoise);
+        }
+        
+        .feature-content p {
             color: var(--light-gray);
+            font-size: 1.1rem;
         }
         
         /* Solution Section */
@@ -357,63 +320,114 @@
         }
         
         .solution-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
         
-        .solution-text h3 {
+        .solution-box {
+            background: linear-gradient(145deg, var(--dark-purple), var(--gray));
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 60px;
+        }
+        
+        .solution-box h3 {
             font-size: 2rem;
             margin-bottom: 20px;
             color: var(--turquoise);
             font-weight: 700;
         }
         
-        .solution-text p {
-            margin-bottom: 20px;
+        .solution-box p {
             color: var(--light-gray);
             font-size: 1.1rem;
+            margin-bottom: 15px;
         }
         
-        .solution-features {
-            margin-top: 30px;
-        }
-        
-        .solution-feature {
+        .solution-interactive {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+            position: relative;
+            height: 300px;
         }
         
-        .solution-feature i {
+        .solution-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            transition: all 0.5s ease;
+        }
+        
+        .solution-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100px;
+        }
+        
+        .solution-icon i {
+            font-size: 2.5rem;
             color: var(--turquoise);
-            margin-right: 15px;
-            font-size: 24px;
-            margin-top: 3px;
-            flex-shrink: 0;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            background: rgba(0, 229, 196, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
         
-        .solution-feature div h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+        .solution-icon.active i {
+            transform: scale(1.2);
+            background: var(--gradient);
+            color: var(--black);
+            box-shadow: 0 0 20px rgba(0, 229, 196, 0.5);
+        }
+        
+        .solution-icon h3 {
+            font-size: 1rem;
             color: var(--white);
-        }
-        
-        .solution-feature div p {
-            color: var(--light-gray);
-            margin: 0;
-        }
-        
-        .solution-image {
             text-align: center;
+            transition: all 0.3s ease;
         }
         
-        .tech-visual {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        .solution-content-text {
+            position: absolute;
+            top: 120px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .solution-content-text.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .solution-content-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--turquoise);
+        }
+        
+        .solution-content-text p {
+            color: var(--light-gray);
+            font-size: 1.1rem;
         }
         
         /* CTA Section */
@@ -533,56 +547,24 @@
             color: var(--turquoise);
         }
         
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
         /* Responsive */
         @media (max-width: 968px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .hero-text {
-                padding-right: 0;
-                margin-bottom: 50px;
+            .feature-icons, .solution-icons {
+                gap: 20px;
             }
             
-            .solution-content {
-                grid-template-columns: 1fr;
+            .feature-icon, .solution-icon {
+                width: 80px;
             }
             
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .feature-icon i, .solution-icon i {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
             }
         }
         
@@ -592,15 +574,20 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title h2 {
                 font-size: 2rem;
+            }
+            
+            .feature-icons, .solution-icons {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .features-interactive, .solution-interactive {
+                height: 400px;
+            }
+            
+            .feature-content, .solution-content-text {
+                top: 150px;
             }
         }
     </style>
@@ -611,13 +598,11 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <i class="fas fa-seedling"></i>
-                    Providentia
+                    Providentia<span class="logo-dot"></span>
                 </div>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#solution">How It Works</a></li>
-                    <li><a href="#demo">Demo</a></li>
                     <li><a href="#contact" class="btn">Contact Us</a></li>
                 </ul>
             </nav>
@@ -628,56 +613,9 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>From Reactive Breakdowns to Proactive Intelligence</h1>
-                    <p>Providentia is the AI-powered predictive maintenance platform that prevents agricultural equipment failures before they happen, saving farms thousands in lost crops and emergency repairs.</p>
-                    <a href="#contact" class="btn">Get Started Today</a>
-                </div>
-                <div class="hero-image">
-                    <div class="dashboard-preview" style="background: var(--gradient); height: 400px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; border: 1px solid rgba(255,255,255,0.2);">
-                        <div style="text-align: center;">
-                            <i class="fas fa-tachometer-alt" style="font-size: 48px; margin-bottom: 20px;"></i>
-                            <h3>Providentia Dashboard</h3>
-                            <p>Real-time equipment monitoring</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="stat-number">99.8%</div>
-                    <div class="stat-text">Failure Detection Accuracy</div>
-                </div>
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <div class="stat-number">$20K+</div>
-                    <div class="stat-text">Saved Per Equipment Failure</div>
-                </div>
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-text">Equipment Monitoring</div>
-                </div>
-                <div class="stat-card fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="stat-number">AI</div>
-                    <div class="stat-text">Powered Predictive Analytics</div>
-                </div>
+                <h1>Predictive Maintenance for Agriculture</h1>
+                <p>From Reactive Breakdowns to Proactive Intelligence. Providentia is the AI-powered predictive maintenance platform that prevents equipment failures before they happen.</p>
+                <a href="#contact" class="btn">Contact Us</a>
             </div>
         </div>
     </section>
@@ -689,48 +627,58 @@
                 <h2>Comprehensive Agricultural Equipment Protection</h2>
                 <p>Every aspect of your farm equipment monitoring, powered by AI that never sleeps</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
+            
+            <div class="features-interactive">
+                <div class="feature-icons">
+                    <div class="feature-icon active" data-index="0">
                         <i class="fas fa-brain"></i>
+                        <h3>Predictive Failure Detection</h3>
                     </div>
-                    <h3>Predictive Failure Detection</h3>
-                    <p>Our AI identifies equipment issues days or weeks before they cause breakdowns, giving you time to schedule maintenance.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
+                    <div class="feature-icon" data-index="1">
                         <i class="fas fa-calendar-check"></i>
+                        <h3>Maintenance Scheduling</h3>
                     </div>
-                    <h3>Maintenance Scheduling</h3>
-                    <p>Optimize maintenance routines and reduce downtime with intelligent, data-driven scheduling.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
+                    <div class="feature-icon" data-index="2">
                         <i class="fas fa-broadcast-tower"></i>
+                        <h3>Equipment Monitoring</h3>
                     </div>
-                    <h3>Equipment Monitoring</h3>
-                    <p>Real-time monitoring of pumps, tractors, and irrigation systems with instant alerts sent directly to your phone.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
+                    <div class="feature-icon" data-index="3">
                         <i class="fas fa-chart-bar"></i>
+                        <h3>Performance Analytics</h3>
                     </div>
-                    <h3>Performance Analytics</h3>
-                    <p>Comprehensive insights and KPI tracking across all your agricultural equipment in one dashboard.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
+                    <div class="feature-icon" data-index="4">
                         <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Anomaly Detection</h3>
                     </div>
-                    <h3>Anomaly Detection</h3>
-                    <p>Identify unusual patterns in equipment behavior that signal potential failures before they occur.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
+                    <div class="feature-icon" data-index="5">
                         <i class="fas fa-piggy-bank"></i>
+                        <h3>Cost Optimization</h3>
                     </div>
+                </div>
+                
+                <div class="feature-content active" data-index="0">
+                    <h3>Predictive Failure Detection</h3>
+                    <p>AI-powered predictions that identify equipment issues before they cause breakdowns</p>
+                </div>
+                <div class="feature-content" data-index="1">
+                    <h3>Maintenance Scheduling</h3>
+                    <p>Optimize maintenance routines and reduce downtime with intelligent scheduling</p>
+                </div>
+                <div class="feature-content" data-index="2">
+                    <h3>Equipment Monitoring</h3>
+                    <p>Real-time monitoring of pumps, tractors, and irrigation systems with instant alerts</p>
+                </div>
+                <div class="feature-content" data-index="3">
+                    <h3>Performance Analytics</h3>
+                    <p>Comprehensive insights and KPI tracking across all your agricultural equipment</p>
+                </div>
+                <div class="feature-content" data-index="4">
+                    <h3>Anomaly Detection</h3>
+                    <p>Identify unusual patterns in equipment behavior that signal potential failures</p>
+                </div>
+                <div class="feature-content" data-index="5">
                     <h3>Cost Optimization</h3>
-                    <p>Reduce emergency repair costs by up to 75% and prevent crop losses from unexpected equipment failures.</p>
+                    <p>Reduce emergency repair costs and prevent crop losses from equipment failures</p>
                 </div>
             </div>
         </div>
@@ -739,47 +687,40 @@
     <!-- Solution Section -->
     <section id="solution" class="solution">
         <div class="container">
-            <div class="section-title">
-                <h2>How Providentia Works</h2>
-                <p>Complex AI, made simple enough for people with dirt on their hands, not engineering degrees</p>
-            </div>
             <div class="solution-content">
-                <div class="solution-text">
+                <div class="solution-box">
                     <h3>The predictive intelligence infrastructure for agriculture</h3>
                     <p>An always-on partner that watches every machine, learns its behavior, and alerts farmers before breakdowns happen.</p>
-                    <p>We built the maintenance expert we always needed after experiencing devastating equipment failures on our own family farm that cost us thousands in lost crops.</p>
-                    
-                    <div class="solution-features">
-                        <div class="solution-feature">
+                    <p>We built the maintenance expert we always needed after experiencing devastating equipment failures on our own family farm.</p>
+                </div>
+                
+                <div class="solution-interactive">
+                    <div class="solution-icons">
+                        <div class="solution-icon active" data-index="0">
                             <i class="fas fa-mobile-alt"></i>
-                            <div>
-                                <h4>Lives in your pocket</h4>
-                                <p>Mobile-first design that works where you work, with offline capabilities for remote farm areas.</p>
-                            </div>
+                            <h3>Lives in your pocket</h3>
                         </div>
-                        <div class="solution-feature">
+                        <div class="solution-icon" data-index="1">
                             <i class="fas fa-comments"></i>
-                            <div>
-                                <h4>Speaks your language</h4>
-                                <p>Clear, actionable alerts in plain language, not technical jargon. "Pump bearing failing in 7-10 days" not "Anomaly detected at 3.7σ".</p>
-                            </div>
+                            <h3>Speaks your language</h3>
                         </div>
-                        <div class="solution-feature">
+                        <div class="solution-icon" data-index="2">
                             <i class="fas fa-eye"></i>
-                            <div>
-                                <h4>Sees failures before they happen</h4>
-                                <p>Proactive maintenance scheduling based on actual equipment condition, not arbitrary time intervals.</p>
-                            </div>
+                            <h3>Sees failures before they happen</h3>
                         </div>
                     </div>
-                </div>
-                <div class="solution-image">
-                    <div class="tech-visual" style="background: linear-gradient(145deg, var(--dark-purple), var(--purple)); height: 400px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; border: 1px solid rgba(255,255,255,0.2);">
-                        <div style="text-align: center;">
-                            <i class="fas fa-network-wired" style="font-size: 48px; margin-bottom: 20px;"></i>
-                            <h3>AI Technology Stack</h3>
-                            <p>Machine Learning + Rule-Based Systems</p>
-                        </div>
+                    
+                    <div class="solution-content-text active" data-index="0">
+                        <h3>Lives in your pocket</h3>
+                        <p>Mobile-first design that works where you work</p>
+                    </div>
+                    <div class="solution-content-text" data-index="1">
+                        <h3>Speaks your language</h3>
+                        <p>Clear, actionable alerts in plain language, not technical jargon</p>
+                    </div>
+                    <div class="solution-content-text" data-index="2">
+                        <h3>Sees failures before they happen</h3>
+                        <p>Proactive maintenance scheduling based on actual equipment condition</p>
                     </div>
                 </div>
             </div>
@@ -853,23 +794,41 @@
             }
         });
         
-        // Fade in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
+        // Interactive Features
+        const featureIcons = document.querySelectorAll('.feature-icon');
+        const featureContents = document.querySelectorAll('.feature-content');
         
-        const fadeInOnScroll = function() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
+        featureIcons.forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                const index = this.getAttribute('data-index');
                 
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
+                // Remove active class from all icons and contents
+                featureIcons.forEach(i => i.classList.remove('active'));
+                featureContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to current icon and content
+                this.classList.add('active');
+                document.querySelector(`.feature-content[data-index="${index}"]`).classList.add('active');
             });
-        };
+        });
         
-        window.addEventListener('scroll', fadeInOnScroll);
-        // Initial check in case elements are already in view
-        fadeInOnScroll();
+        // Interactive Solution
+        const solutionIcons = document.querySelectorAll('.solution-icon');
+        const solutionContents = document.querySelectorAll('.solution-content-text');
+        
+        solutionIcons.forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                const index = this.getAttribute('data-index');
+                
+                // Remove active class from all icons and contents
+                solutionIcons.forEach(i => i.classList.remove('active'));
+                solutionContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to current icon and content
+                this.classList.add('active');
+                document.querySelector(`.solution-content-text[data-index="${index}"]`).classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
