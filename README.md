@@ -175,9 +175,10 @@
             opacity: 0.9;
         }
         
-        /* Features Section */
+        /* Features Section - EXACT INTERACTION */
         .features {
             background: var(--gradient);
+            position: relative;
         }
         
         .section-title {
@@ -200,41 +201,37 @@
             font-size: 1.1rem;
         }
         
-        .features-interactive {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .features-section {
             position: relative;
+            text-align: center;
             min-height: 400px;
         }
         
         .feature-icons {
             display: flex;
             justify-content: center;
-            gap: 50px;
-            width: 100%;
+            gap: 40px;
+            transition: 0.3s ease;
             flex-wrap: wrap;
         }
         
         .feature-icon {
+            cursor: pointer;
+            transition: opacity 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
-            cursor: pointer;
-            transition: all 0.5s ease;
             width: 140px;
         }
         
-        .feature-icons:hover .feature-icon:not(:hover) {
-            opacity: 0.3;
-            transform: scale(0.9);
+        .feature-icon.dimmed {
+            opacity: 0;
         }
         
         .feature-icon i {
             font-size: 3rem;
             color: var(--turquoise);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
+            margin-bottom: 15px;
             background: rgba(0, 229, 196, 0.2);
             width: 100px;
             height: 100px;
@@ -242,9 +239,10 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            transition: all 0.3s ease;
         }
         
-        .feature-icon:hover i {
+        .feature-icon.active i {
             transform: scale(1.2);
             background: rgba(255, 255, 255, 0.9);
             color: var(--purple);
@@ -258,51 +256,46 @@
             font-weight: 600;
         }
         
-        .feature-content-container {
+        .feature-popup {
             position: absolute;
-            top: 180px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            z-index: 10;
-        }
-        
-        .feature-content {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            opacity: 0;
+            max-width: 450px;
+            padding: 30px;
             background: rgba(26, 16, 61, 0.95);
-            border-radius: 15px;
-            padding: 40px;
+            border-radius: 14px;
+            color: white;
+            display: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             border: 2px solid var(--turquoise);
-            max-width: 600px;
             text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-            pointer-events: none;
         }
         
-        .feature-content.active {
+        .feature-popup.visible {
+            display: block;
             opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
         }
         
-        .feature-content h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+        .feature-popup h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
             color: var(--turquoise);
         }
         
-        .feature-content p {
+        .feature-popup p {
             color: var(--white);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             opacity: 0.9;
         }
         
-        /* Solution Section */
+        /* Solution Section - EXACT INTERACTION */
         .solution {
             background: var(--gradient);
+            position: relative;
         }
         
         .solution-box {
@@ -330,41 +323,37 @@
             opacity: 0.9;
         }
         
-        .solution-interactive {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .solution-section {
             position: relative;
+            text-align: center;
             min-height: 400px;
         }
         
         .solution-icons {
             display: flex;
             justify-content: center;
-            gap: 60px;
-            width: 100%;
+            gap: 40px;
+            transition: 0.3s ease;
             flex-wrap: wrap;
         }
         
         .solution-icon {
+            cursor: pointer;
+            transition: opacity 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
-            cursor: pointer;
-            transition: all 0.5s ease;
             width: 140px;
         }
         
-        .solution-icons:hover .solution-icon:not(:hover) {
-            opacity: 0.3;
-            transform: scale(0.9);
+        .solution-icon.dimmed {
+            opacity: 0;
         }
         
         .solution-icon i {
             font-size: 3rem;
             color: var(--turquoise);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
+            margin-bottom: 15px;
             background: rgba(0, 229, 196, 0.2);
             width: 100px;
             height: 100px;
@@ -372,9 +361,10 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            transition: all 0.3s ease;
         }
         
-        .solution-icon:hover i {
+        .solution-icon.active i {
             transform: scale(1.2);
             background: rgba(255, 255, 255, 0.9);
             color: var(--purple);
@@ -388,45 +378,39 @@
             font-weight: 600;
         }
         
-        .solution-content-container {
+        .solution-popup {
             position: absolute;
-            top: 180px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            z-index: 10;
-        }
-        
-        .solution-content-text {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            opacity: 0;
+            max-width: 450px;
+            padding: 30px;
             background: rgba(26, 16, 61, 0.95);
-            border-radius: 15px;
-            padding: 40px;
+            border-radius: 14px;
+            color: white;
+            display: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             border: 2px solid var(--turquoise);
-            max-width: 600px;
             text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-            pointer-events: none;
         }
         
-        .solution-content-text.active {
+        .solution-popup.visible {
+            display: block;
             opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
         }
         
-        .solution-content-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+        .solution-popup h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
             color: var(--turquoise);
         }
         
-        .solution-content-text p {
+        .solution-popup p {
             color: var(--white);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             opacity: 0.9;
         }
         
@@ -567,10 +551,6 @@
             .feature-icons, .solution-icons {
                 gap: 20px;
             }
-            
-            .feature-content-container, .solution-content-container {
-                top: 220px;
-            }
         }
     </style>
 </head>
@@ -602,7 +582,7 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features Section - EXACT INTERACTION -->
     <section id="features" class="features">
         <div class="container">
             <div class="section-title">
@@ -610,65 +590,40 @@
                 <p>Every aspect of your farm equipment monitoring, powered by AI that never sleeps</p>
             </div>
             
-            <div class="features-interactive">
+            <div class="features-section">
                 <div class="feature-icons">
-                    <div class="feature-icon" data-index="0">
+                    <div class="feature-icon" data-title="Predictive Failure Detection" data-desc="AI-powered predictions that identify equipment issues before they cause breakdowns">
                         <i class="fas fa-brain"></i>
                         <h3>Predictive Failure Detection</h3>
                     </div>
-                    <div class="feature-icon" data-index="1">
+                    <div class="feature-icon" data-title="Maintenance Scheduling" data-desc="Optimize maintenance routines and reduce downtime with intelligent scheduling">
                         <i class="fas fa-calendar-check"></i>
                         <h3>Maintenance Scheduling</h3>
                     </div>
-                    <div class="feature-icon" data-index="2">
+                    <div class="feature-icon" data-title="Equipment Monitoring" data-desc="Real-time monitoring of pumps, tractors, and irrigation systems with instant alerts">
                         <i class="fas fa-broadcast-tower"></i>
                         <h3>Equipment Monitoring</h3>
                     </div>
-                    <div class="feature-icon" data-index="3">
+                    <div class="feature-icon" data-title="Performance Analytics" data-desc="Comprehensive insights and KPI tracking across all your agricultural equipment">
                         <i class="fas fa-chart-bar"></i>
                         <h3>Performance Analytics</h3>
                     </div>
-                    <div class="feature-icon" data-index="4">
+                    <div class="feature-icon" data-title="Anomaly Detection" data-desc="Identify unusual patterns in equipment behavior that signal potential failures">
                         <i class="fas fa-exclamation-triangle"></i>
                         <h3>Anomaly Detection</h3>
                     </div>
-                    <div class="feature-icon" data-index="5">
+                    <div class="feature-icon" data-title="Cost Optimization" data-desc="Reduce emergency repair costs and prevent crop losses from equipment failures">
                         <i class="fas fa-piggy-bank"></i>
                         <h3>Cost Optimization</h3>
                     </div>
                 </div>
                 
-                <div class="feature-content-container">
-                    <div class="feature-content" data-index="0">
-                        <h3>Predictive Failure Detection</h3>
-                        <p>AI-powered predictions that identify equipment issues before they cause breakdowns</p>
-                    </div>
-                    <div class="feature-content" data-index="1">
-                        <h3>Maintenance Scheduling</h3>
-                        <p>Optimize maintenance routines and reduce downtime with intelligent scheduling</p>
-                    </div>
-                    <div class="feature-content" data-index="2">
-                        <h3>Equipment Monitoring</h3>
-                        <p>Real-time monitoring of pumps, tractors, and irrigation systems with instant alerts</p>
-                    </div>
-                    <div class="feature-content" data-index="3">
-                        <h3>Performance Analytics</h3>
-                        <p>Comprehensive insights and KPI tracking across all your agricultural equipment</p>
-                    </div>
-                    <div class="feature-content" data-index="4">
-                        <h3>Anomaly Detection</h3>
-                        <p>Identify unusual patterns in equipment behavior that signal potential failures</p>
-                    </div>
-                    <div class="feature-content" data-index="5">
-                        <h3>Cost Optimization</h3>
-                        <p>Reduce emergency repair costs and prevent crop losses from equipment failures</p>
-                    </div>
-                </div>
+                <div class="feature-popup"></div>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
+    <!-- Solution Section - EXACT INTERACTION -->
     <section id="solution" class="solution">
         <div class="container">
             <div class="solution-box">
@@ -677,36 +632,23 @@
                 <p>We built the maintenance expert we always needed after experiencing devastating equipment failures on our own family farm.</p>
             </div>
             
-            <div class="solution-interactive">
+            <div class="solution-section">
                 <div class="solution-icons">
-                    <div class="solution-icon" data-index="0">
+                    <div class="solution-icon" data-title="Lives in your pocket" data-desc="Mobile-first design that works where you work">
                         <i class="fas fa-mobile-alt"></i>
                         <h3>Lives in your pocket</h3>
                     </div>
-                    <div class="solution-icon" data-index="1">
+                    <div class="solution-icon" data-title="Speaks your language" data-desc="Clear, actionable alerts in plain language, not technical jargon">
                         <i class="fas fa-comments"></i>
                         <h3>Speaks your language</h3>
                     </div>
-                    <div class="solution-icon" data-index="2">
+                    <div class="solution-icon" data-title="Sees failures before they happen" data-desc="Proactive maintenance scheduling based on actual equipment condition">
                         <i class="fas fa-eye"></i>
                         <h3>Sees failures before they happen</h3>
                     </div>
                 </div>
                 
-                <div class="solution-content-container">
-                    <div class="solution-content-text" data-index="0">
-                        <h3>Lives in your pocket</h3>
-                        <p>Mobile-first design that works where you work</p>
-                    </div>
-                    <div class="solution-content-text" data-index="1">
-                        <h3>Speaks your language</h3>
-                        <p>Clear, actionable alerts in plain language, not technical jargon</p>
-                    </div>
-                    <div class="solution-content-text" data-index="2">
-                        <h3>Sees failures before they happen</h3>
-                        <p>Proactive maintenance scheduling based on actual equipment condition</p>
-                    </div>
-                </div>
+                <div class="solution-popup"></div>
             </div>
         </div>
     </section>
@@ -768,48 +710,84 @@
     </footer>
 
     <script>
-        // Interactive Features
+        // Features Section Interaction - EXACT IMPLEMENTATION
         const featureIcons = document.querySelectorAll('.feature-icon');
-        const featureContents = document.querySelectorAll('.feature-content');
+        const featurePopup = document.querySelector('.feature-popup');
         
         featureIcons.forEach(icon => {
-            icon.addEventListener('mouseenter', function() {
-                const index = this.getAttribute('data-index');
+            icon.addEventListener('mouseenter', () => {
+                // Get content
+                const title = icon.dataset.title;
+                const desc = icon.dataset.desc;
                 
-                // Remove active class from all contents
-                featureContents.forEach(c => c.classList.remove('active'));
+                // Populate popup
+                featurePopup.innerHTML = `
+                    <h3>${title}</h3>
+                    <p>${desc}</p>
+                `;
                 
-                // Add active class to current content
-                document.querySelector(`.feature-content[data-index="${index}"]`).classList.add('active');
+                // Show popup
+                featurePopup.classList.add('visible');
+                
+                // Add active class to hovered icon
+                icon.classList.add('active');
+                
+                // Dim other icons
+                featureIcons.forEach(i => {
+                    if (i !== icon) i.classList.add('dimmed');
+                });
+            });
+            
+            icon.addEventListener('mouseleave', () => {
+                // Hide popup
+                featurePopup.classList.remove('visible');
+                
+                // Remove active class
+                icon.classList.remove('active');
+                
+                // Reset icons
+                featureIcons.forEach(i => i.classList.remove('dimmed'));
             });
         });
         
-        // Interactive Solution
+        // Solution Section Interaction - EXACT IMPLEMENTATION
         const solutionIcons = document.querySelectorAll('.solution-icon');
-        const solutionContents = document.querySelectorAll('.solution-content-text');
+        const solutionPopup = document.querySelector('.solution-popup');
         
         solutionIcons.forEach(icon => {
-            icon.addEventListener('mouseenter', function() {
-                const index = this.getAttribute('data-index');
+            icon.addEventListener('mouseenter', () => {
+                // Get content
+                const title = icon.dataset.title;
+                const desc = icon.dataset.desc;
                 
-                // Remove active class from all contents
-                solutionContents.forEach(c => c.classList.remove('active'));
+                // Populate popup
+                solutionPopup.innerHTML = `
+                    <h3>${title}</h3>
+                    <p>${desc}</p>
+                `;
                 
-                // Add active class to current content
-                document.querySelector(`.solution-content-text[data-index="${index}"]`).classList.add('active');
+                // Show popup
+                solutionPopup.classList.add('visible');
+                
+                // Add active class to hovered icon
+                icon.classList.add('active');
+                
+                // Dim other icons
+                solutionIcons.forEach(i => {
+                    if (i !== icon) i.classList.add('dimmed');
+                });
             });
-        });
-        
-        // Reset content when mouse leaves the interactive area
-        const featureInteractive = document.querySelector('.features-interactive');
-        const solutionInteractive = document.querySelector('.solution-interactive');
-        
-        featureInteractive.addEventListener('mouseleave', function() {
-            featureContents.forEach(c => c.classList.remove('active'));
-        });
-        
-        solutionInteractive.addEventListener('mouseleave', function() {
-            solutionContents.forEach(c => c.classList.remove('active'));
+            
+            icon.addEventListener('mouseleave', () => {
+                // Hide popup
+                solutionPopup.classList.remove('visible');
+                
+                // Remove active class
+                icon.classList.remove('active');
+                
+                // Reset icons
+                solutionIcons.forEach(i => i.classList.remove('dimmed'));
+            });
         });
     </script>
 </body>
