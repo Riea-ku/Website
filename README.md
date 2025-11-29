@@ -19,6 +19,7 @@
             --light-gray: #e5e5e5;
             --white: #ffffff;
             --gradient: linear-gradient(135deg, var(--purple) 0%, var(--turquoise) 100%);
+            --section-gradient: linear-gradient(135deg, var(--dark-purple) 0%, var(--black) 100%);
         }
         
         * {
@@ -34,7 +35,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--white);
-            background-color: var(--black);
+            background: var(--section-gradient);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -45,12 +46,13 @@
             padding: 0 20px;
         }
         
-        /* Header & Navigation */
+        /* Header - Full Width */
         header {
-            background-color: rgba(26, 16, 61, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: var(--dark-purple);
             position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             width: 100%;
             z-index: 1000;
             transition: all 0.3s ease;
@@ -163,9 +165,9 @@
             box-shadow: 0 8px 20px rgba(0, 229, 196, 0.4);
         }
         
-        /* Hero Section */
+        /* Hero Section - Full Width */
         .hero {
-            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--black) 100%);
+            background: var(--section-gradient);
             padding: 180px 0 100px;
             position: relative;
             overflow: hidden;
@@ -212,10 +214,11 @@
             color: var(--light-gray);
         }
         
-        /* Interactive Features Section */
+        /* Interactive Features Section - Full Width */
         .features {
-            padding: 100px 0;
-            background-color: var(--black);
+            padding: 80px 0;
+            background: var(--section-gradient);
+            position: relative;
         }
         
         .section-title {
@@ -239,11 +242,11 @@
         
         .features-interactive {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             margin-top: 60px;
             position: relative;
-            height: 300px;
+            min-height: 350px;
         }
         
         .feature-icons {
@@ -251,6 +254,8 @@
             justify-content: center;
             gap: 40px;
             transition: all 0.5s ease;
+            width: 100%;
+            flex-wrap: wrap;
         }
         
         .feature-icon {
@@ -300,18 +305,27 @@
             transition: all 0.3s ease;
         }
         
-        .feature-content {
+        .feature-content-container {
             position: absolute;
-            top: 120px;
+            top: 150px;
             left: 0;
             right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .feature-content {
+            background: rgba(26, 16, 61, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 600px;
             text-align: center;
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.5s ease;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 20px;
             pointer-events: none;
         }
         
@@ -332,10 +346,11 @@
             font-size: 1.1rem;
         }
         
-        /* Solution Section */
+        /* Solution Section - Full Width */
         .solution {
-            padding: 100px 0;
-            background-color: var(--dark-gray);
+            padding: 80px 0;
+            background: var(--section-gradient);
+            position: relative;
         }
         
         .solution-content {
@@ -368,11 +383,11 @@
         
         .solution-interactive {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             margin-top: 60px;
             position: relative;
-            height: 300px;
+            min-height: 350px;
         }
         
         .solution-icons {
@@ -380,6 +395,8 @@
             justify-content: center;
             gap: 40px;
             transition: all 0.5s ease;
+            width: 100%;
+            flex-wrap: wrap;
         }
         
         .solution-icon {
@@ -429,18 +446,27 @@
             transition: all 0.3s ease;
         }
         
-        .solution-content-text {
+        .solution-content-container {
             position: absolute;
-            top: 120px;
+            top: 150px;
             left: 0;
             right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .solution-content-text {
+            background: rgba(26, 16, 61, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 600px;
             text-align: center;
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.5s ease;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 20px;
             pointer-events: none;
         }
         
@@ -461,11 +487,11 @@
             font-size: 1.1rem;
         }
         
-        /* CTA Section */
+        /* CTA Section - Full Width */
         .cta {
             background: linear-gradient(135deg, var(--purple) 0%, var(--dark-purple) 100%);
             text-align: center;
-            padding: 120px 0;
+            padding: 80px 0;
             position: relative;
             overflow: hidden;
         }
@@ -499,9 +525,9 @@
             color: var(--light-gray);
         }
         
-        /* Footer */
+        /* Footer - Full Width */
         footer {
-            background-color: var(--black);
+            background-color: var(--dark-purple);
             padding: 80px 0 30px;
             border-top: 1px solid var(--gray);
         }
@@ -613,18 +639,14 @@
                 gap: 15px;
             }
             
-            .features-interactive, .solution-interactive {
-                height: 400px;
-            }
-            
-            .feature-content, .solution-content-text {
-                top: 150px;
+            .feature-content-container, .solution-content-container {
+                top: 200px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - Full Width -->
     <header id="header">
         <div class="container">
             <nav>
@@ -640,7 +662,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Full Width -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -653,7 +675,7 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features Section - Full Width -->
     <section id="features" class="features">
         <div class="container">
             <div class="section-title">
@@ -689,35 +711,37 @@
                     </div>
                 </div>
                 
-                <div class="feature-content" data-index="0">
-                    <h3>Predictive Failure Detection</h3>
-                    <p>AI-powered predictions that identify equipment issues before they cause breakdowns</p>
-                </div>
-                <div class="feature-content" data-index="1">
-                    <h3>Maintenance Scheduling</h3>
-                    <p>Optimize maintenance routines and reduce downtime with intelligent scheduling</p>
-                </div>
-                <div class="feature-content" data-index="2">
-                    <h3>Equipment Monitoring</h3>
-                    <p>Real-time monitoring of pumps, tractors, and irrigation systems with instant alerts</p>
-                </div>
-                <div class="feature-content" data-index="3">
-                    <h3>Performance Analytics</h3>
-                    <p>Comprehensive insights and KPI tracking across all your agricultural equipment</p>
-                </div>
-                <div class="feature-content" data-index="4">
-                    <h3>Anomaly Detection</h3>
-                    <p>Identify unusual patterns in equipment behavior that signal potential failures</p>
-                </div>
-                <div class="feature-content" data-index="5">
-                    <h3>Cost Optimization</h3>
-                    <p>Reduce emergency repair costs and prevent crop losses from equipment failures</p>
+                <div class="feature-content-container">
+                    <div class="feature-content" data-index="0">
+                        <h3>Predictive Failure Detection</h3>
+                        <p>AI-powered predictions that identify equipment issues before they cause breakdowns</p>
+                    </div>
+                    <div class="feature-content" data-index="1">
+                        <h3>Maintenance Scheduling</h3>
+                        <p>Optimize maintenance routines and reduce downtime with intelligent scheduling</p>
+                    </div>
+                    <div class="feature-content" data-index="2">
+                        <h3>Equipment Monitoring</h3>
+                        <p>Real-time monitoring of pumps, tractors, and irrigation systems with instant alerts</p>
+                    </div>
+                    <div class="feature-content" data-index="3">
+                        <h3>Performance Analytics</h3>
+                        <p>Comprehensive insights and KPI tracking across all your agricultural equipment</p>
+                    </div>
+                    <div class="feature-content" data-index="4">
+                        <h3>Anomaly Detection</h3>
+                        <p>Identify unusual patterns in equipment behavior that signal potential failures</p>
+                    </div>
+                    <div class="feature-content" data-index="5">
+                        <h3>Cost Optimization</h3>
+                        <p>Reduce emergency repair costs and prevent crop losses from equipment failures</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
+    <!-- Solution Section - Full Width -->
     <section id="solution" class="solution">
         <div class="container">
             <div class="solution-content">
@@ -743,24 +767,26 @@
                         </div>
                     </div>
                     
-                    <div class="solution-content-text" data-index="0">
-                        <h3>Lives in your pocket</h3>
-                        <p>Mobile-first design that works where you work</p>
-                    </div>
-                    <div class="solution-content-text" data-index="1">
-                        <h3>Speaks your language</h3>
-                        <p>Clear, actionable alerts in plain language, not technical jargon</p>
-                    </div>
-                    <div class="solution-content-text" data-index="2">
-                        <h3>Sees failures before they happen</h3>
-                        <p>Proactive maintenance scheduling based on actual equipment condition</p>
+                    <div class="solution-content-container">
+                        <div class="solution-content-text" data-index="0">
+                            <h3>Lives in your pocket</h3>
+                            <p>Mobile-first design that works where you work</p>
+                        </div>
+                        <div class="solution-content-text" data-index="1">
+                            <h3>Speaks your language</h3>
+                            <p>Clear, actionable alerts in plain language, not technical jargon</p>
+                        </div>
+                        <div class="solution-content-text" data-index="2">
+                            <h3>Sees failures before they happen</h3>
+                            <p>Proactive maintenance scheduling based on actual equipment condition</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section - Full Width -->
     <section id="contact" class="cta">
         <div class="container">
             <div class="cta-content">
@@ -771,7 +797,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - Full Width -->
     <footer>
         <div class="container">
             <div class="footer-content">
