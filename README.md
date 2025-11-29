@@ -732,8 +732,8 @@
     <section id="contact" class="cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to protect your farm from unexpected breakdowns?</h2>
-                <p>Join forward-thinking farms already using Providentia to prevent equipment failures and maximize productivity.</p>
+                <h2>Ready to protect your business from unexpected breakdowns?</h2>
+                <p>Join Use Providentia to prevent equipment failures and maximize productivity.</p>
                 <a href="https://providentia.pythonanywhere.com/" class="btn" target="_blank">View Live Demo</a>
             </div>
         </div>
