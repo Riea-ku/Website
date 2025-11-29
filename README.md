@@ -34,7 +34,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--white);
-            background-color: var(--black);
+            background: var(--dark-purple);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -150,7 +150,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--black) 100%);
+            background: var(--dark-purple);
             text-align: center;
             padding-top: 140px;
         }
@@ -180,7 +180,7 @@
         
         /* Features Section - FLOATING POPUP FIX */
         .features {
-            background-color: var(--black);
+            background: var(--dark-purple);
             position: relative;
         }
         
@@ -265,12 +265,12 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0.95);
-            width: 380px;
+            width: 450px;
             padding: 30px;
             background: rgba(26, 16, 61, 0.95);
             border-radius: 16px;
             color: white;
-            text-align: center;
+            text-align: left;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -286,20 +286,41 @@
             transform: translate(-50%, -50%) scale(1);
         }
         
-        .feature-popup h3 {
-            font-size: 1.8rem;
+        .popup-header {
+            display: flex;
+            align-items: center;
             margin-bottom: 15px;
+            gap: 15px;
+        }
+        
+        .popup-icon {
+            font-size: 2rem;
             color: var(--turquoise);
+            background: rgba(0, 229, 196, 0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .popup-header h3 {
+            font-size: 1.8rem;
+            color: var(--turquoise);
+            margin: 0;
         }
         
         .feature-popup p {
             color: var(--light-gray);
             font-size: 1.1rem;
+            margin-left: 75px;
         }
         
         /* Solution Section - FLOATING POPUP FIX */
         .solution {
-            background-color: var(--dark-gray);
+            background: var(--dark-purple);
             position: relative;
         }
         
@@ -389,12 +410,12 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0.95);
-            width: 380px;
+            width: 450px;
             padding: 30px;
             background: rgba(26, 16, 61, 0.95);
             border-radius: 16px;
             color: white;
-            text-align: center;
+            text-align: left;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -410,15 +431,36 @@
             transform: translate(-50%, -50%) scale(1);
         }
         
-        .solution-popup h3 {
-            font-size: 1.8rem;
+        .solution-popup .popup-header {
+            display: flex;
+            align-items: center;
             margin-bottom: 15px;
+            gap: 15px;
+        }
+        
+        .solution-popup .popup-icon {
+            font-size: 2rem;
             color: var(--turquoise);
+            background: rgba(0, 229, 196, 0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .solution-popup .popup-header h3 {
+            font-size: 1.8rem;
+            color: var(--turquoise);
+            margin: 0;
         }
         
         .solution-popup p {
             color: var(--light-gray);
             font-size: 1.1rem;
+            margin-left: 75px;
         }
         
         /* CTA Section */
@@ -440,18 +482,22 @@
             color: var(--light-gray);
         }
         
-        /* Footer */
+        /* Footer - FIXED ALIGNMENT */
         footer {
-            background-color: var(--black);
+            background-color: var(--dark-purple);
             padding: 80px 0 30px;
-            border-top: 1px solid var(--gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
             margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            text-align: left;
         }
         
         .footer-column h3 {
@@ -492,7 +538,7 @@
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid var(--gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--light-gray);
             font-size: 0.9rem;
         }
@@ -540,7 +586,7 @@
             }
             
             .feature-popup, .solution-popup {
-                width: 340px;
+                width: 380px;
             }
         }
         
@@ -558,8 +604,25 @@
             }
             
             .feature-popup, .solution-popup {
-                width: 300px;
+                width: 320px;
                 padding: 25px;
+            }
+            
+            .popup-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .feature-popup p, .solution-popup p {
+                margin-left: 0;
+                text-align: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
             }
         }
     </style>
@@ -602,27 +665,27 @@
             
             <div class="features-section">
                 <div class="feature-icons">
-                    <div class="feature-icon" data-title="Predictive Failure Detection" data-desc="AI-powered predictions that identify equipment issues before they cause breakdowns">
+                    <div class="feature-icon" data-title="Predictive Failure Detection" data-desc="AI-powered predictions that identify equipment issues before they cause breakdowns" data-icon="brain">
                         <i class="fas fa-brain"></i>
                         <h3>Predictive Failure Detection</h3>
                     </div>
-                    <div class="feature-icon" data-title="Maintenance Scheduling" data-desc="Optimize maintenance routines and reduce downtime with intelligent scheduling">
+                    <div class="feature-icon" data-title="Maintenance Scheduling" data-desc="Optimize maintenance routines and reduce downtime with intelligent scheduling" data-icon="calendar-check">
                         <i class="fas fa-calendar-check"></i>
                         <h3>Maintenance Scheduling</h3>
                     </div>
-                    <div class="feature-icon" data-title="Equipment Monitoring" data-desc="Real-time monitoring of pumps, tractors, and irrigation systems with instant alerts">
+                    <div class="feature-icon" data-title="Equipment Monitoring" data-desc="Real-time monitoring of pumps, tractors, and irrigation systems with instant alerts" data-icon="broadcast-tower">
                         <i class="fas fa-broadcast-tower"></i>
                         <h3>Equipment Monitoring</h3>
                     </div>
-                    <div class="feature-icon" data-title="Performance Analytics" data-desc="Comprehensive insights and KPI tracking across all your agricultural equipment">
+                    <div class="feature-icon" data-title="Performance Analytics" data-desc="Comprehensive insights and KPI tracking across all your agricultural equipment" data-icon="chart-bar">
                         <i class="fas fa-chart-bar"></i>
                         <h3>Performance Analytics</h3>
                     </div>
-                    <div class="feature-icon" data-title="Anomaly Detection" data-desc="Identify unusual patterns in equipment behavior that signal potential failures">
+                    <div class="feature-icon" data-title="Anomaly Detection" data-desc="Identify unusual patterns in equipment behavior that signal potential failures" data-icon="exclamation-triangle">
                         <i class="fas fa-exclamation-triangle"></i>
                         <h3>Anomaly Detection</h3>
                     </div>
-                    <div class="feature-icon" data-title="Cost Optimization" data-desc="Reduce emergency repair costs and prevent crop losses from equipment failures">
+                    <div class="feature-icon" data-title="Cost Optimization" data-desc="Reduce emergency repair costs and prevent crop losses from equipment failures" data-icon="piggy-bank">
                         <i class="fas fa-piggy-bank"></i>
                         <h3>Cost Optimization</h3>
                     </div>
@@ -645,15 +708,15 @@
             
             <div class="solution-section">
                 <div class="solution-icons">
-                    <div class="solution-icon" data-title="Lives in your pocket" data-desc="Mobile-first design that works where you work">
+                    <div class="solution-icon" data-title="Lives in your pocket" data-desc="Mobile-first design that works where you work" data-icon="mobile-alt">
                         <i class="fas fa-mobile-alt"></i>
                         <h3>Lives in your pocket</h3>
                     </div>
-                    <div class="solution-icon" data-title="Speaks your language" data-desc="Clear, actionable alerts in plain language, not technical jargon">
+                    <div class="solution-icon" data-title="Speaks your language" data-desc="Clear, actionable alerts in plain language, not technical jargon" data-icon="comments">
                         <i class="fas fa-comments"></i>
                         <h3>Speaks your language</h3>
                     </div>
-                    <div class="solution-icon" data-title="Sees failures before they happen" data-desc="Proactive maintenance scheduling based on actual equipment condition">
+                    <div class="solution-icon" data-title="Sees failures before they happen" data-desc="Proactive maintenance scheduling based on actual equipment condition" data-icon="eye">
                         <i class="fas fa-eye"></i>
                         <h3>Sees failures before they happen</h3>
                     </div>
@@ -676,7 +739,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - FIXED ALIGNMENT -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -731,10 +794,16 @@
                 // Get content
                 const title = icon.dataset.title;
                 const desc = icon.dataset.desc;
+                const iconClass = icon.dataset.icon;
                 
-                // Populate popup
+                // Populate popup with icon
                 featurePopup.innerHTML = `
-                    <h3>${title}</h3>
+                    <div class="popup-header">
+                        <div class="popup-icon">
+                            <i class="fas fa-${iconClass}"></i>
+                        </div>
+                        <h3>${title}</h3>
+                    </div>
                     <p>${desc}</p>
                 `;
                 
@@ -772,10 +841,16 @@
                 // Get content
                 const title = icon.dataset.title;
                 const desc = icon.dataset.desc;
+                const iconClass = icon.dataset.icon;
                 
-                // Populate popup
+                // Populate popup with icon
                 solutionPopup.innerHTML = `
-                    <h3>${title}</h3>
+                    <div class="popup-header">
+                        <div class="popup-icon">
+                            <i class="fas fa-${iconClass}"></i>
+                        </div>
+                        <h3>${title}</h3>
+                    </div>
                     <p>${desc}</p>
                 `;
                 
