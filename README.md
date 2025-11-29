@@ -13,13 +13,8 @@
             --light-purple: #5a34b8;
             --turquoise: #00e5c4;
             --light-turquoise: #4dfee8;
-            --black: #0a0a0a;
-            --dark-gray: #1a1a1a;
-            --gray: #2a2a2a;
-            --light-gray: #e5e5e5;
             --white: #ffffff;
             --gradient: linear-gradient(135deg, var(--purple) 0%, var(--turquoise) 100%);
-            --section-gradient: linear-gradient(135deg, var(--dark-purple) 0%, var(--black) 100%);
         }
         
         * {
@@ -35,18 +30,12 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--white);
-            background: var(--section-gradient);
+            background: var(--gradient);
             line-height: 1.6;
             overflow-x: hidden;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header - Full Width */
+        /* Header - Full Width Band */
         header {
             background-color: var(--dark-purple);
             position: fixed;
@@ -55,13 +44,13 @@
             right: 0;
             width: 100%;
             z-index: 1000;
-            transition: all 0.3s ease;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        header.scrolled {
-            padding: 10px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         nav {
@@ -69,11 +58,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled nav {
-            padding: 5px 0;
         }
         
         .logo {
@@ -134,30 +118,13 @@
         .btn {
             display: inline-block;
             background: var(--gradient);
-            color: var(--black);
+            color: var(--white);
             padding: 14px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(0, 229, 196, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn:hover:before {
-            left: 100%;
         }
         
         .btn:hover {
@@ -165,44 +132,37 @@
             box-shadow: 0 8px 20px rgba(0, 229, 196, 0.4);
         }
         
-        /* Hero Section - Full Width */
-        .hero {
-            background: var(--section-gradient);
-            padding: 180px 0 100px;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* Sections - Full Width */
+        section {
             width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><polygon fill="%2300e5c4" points="0,1000 1000,0 1000,1000"/></svg>');
-            background-size: cover;
+            padding: 80px 0;
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 1;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            text-align: center;
+            padding-top: 140px;
+        }
+        
+        .hero-box {
+            background: rgba(26, 16, 61, 0.8);
+            border-radius: 15px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             max-width: 800px;
             margin: 0 auto;
         }
         
-        .hero-box {
-            background: linear-gradient(145deg, var(--dark-purple), var(--gray));
-            border-radius: 15px;
-            padding: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 40px;
-        }
-        
         .hero-box h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
             color: var(--white);
             font-weight: 700;
@@ -211,14 +171,13 @@
         .hero-box p {
             font-size: 1.25rem;
             margin-bottom: 30px;
-            color: var(--light-gray);
+            color: var(--white);
+            opacity: 0.9;
         }
         
-        /* Interactive Features Section - Full Width */
+        /* Features Section */
         .features {
-            padding: 80px 0;
-            background: var(--section-gradient);
-            position: relative;
+            background: var(--gradient);
         }
         
         .section-title {
@@ -234,7 +193,8 @@
         }
         
         .section-title p {
-            color: var(--light-gray);
+            color: var(--white);
+            opacity: 0.9;
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.1rem;
@@ -244,16 +204,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 60px;
             position: relative;
-            min-height: 350px;
+            min-height: 400px;
         }
         
         .feature-icons {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            transition: all 0.5s ease;
+            gap: 50px;
             width: 100%;
             flex-wrap: wrap;
         }
@@ -264,12 +222,7 @@
             align-items: center;
             cursor: pointer;
             transition: all 0.5s ease;
-            width: 120px;
-            opacity: 1;
-        }
-        
-        .feature-icons:not(:hover) .feature-icon {
-            opacity: 1;
+            width: 140px;
         }
         
         .feature-icons:hover .feature-icon:not(:hover) {
@@ -278,13 +231,13 @@
         }
         
         .feature-icon i {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--turquoise);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             transition: all 0.3s ease;
-            background: rgba(0, 229, 196, 0.1);
-            width: 80px;
-            height: 80px;
+            background: rgba(0, 229, 196, 0.2);
+            width: 100px;
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -293,21 +246,21 @@
         
         .feature-icon:hover i {
             transform: scale(1.2);
-            background: var(--gradient);
-            color: var(--black);
-            box-shadow: 0 0 20px rgba(0, 229, 196, 0.5);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--purple);
+            box-shadow: 0 0 30px rgba(0, 229, 196, 0.6);
         }
         
         .feature-icon h3 {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--white);
             text-align: center;
-            transition: all 0.3s ease;
+            font-weight: 600;
         }
         
         .feature-content-container {
             position: absolute;
-            top: 150px;
+            top: 180px;
             left: 0;
             right: 0;
             display: flex;
@@ -318,9 +271,9 @@
         .feature-content {
             background: rgba(26, 16, 61, 0.95);
             border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--turquoise);
             max-width: 600px;
             text-align: center;
             opacity: 0;
@@ -336,65 +289,59 @@
         }
         
         .feature-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: var(--turquoise);
         }
         
         .feature-content p {
-            color: var(--light-gray);
-            font-size: 1.1rem;
+            color: var(--white);
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
         
-        /* Solution Section - Full Width */
+        /* Solution Section */
         .solution {
-            padding: 80px 0;
-            background: var(--section-gradient);
-            position: relative;
-        }
-        
-        .solution-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            background: var(--gradient);
         }
         
         .solution-box {
-            background: linear-gradient(145deg, var(--dark-purple), var(--gray));
+            background: rgba(26, 16, 61, 0.8);
             border-radius: 15px;
-            padding: 50px;
+            padding: 60px 50px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 60px;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            text-align: center;
         }
         
         .solution-box h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
             color: var(--turquoise);
             font-weight: 700;
         }
         
         .solution-box p {
-            color: var(--light-gray);
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
         }
         
         .solution-interactive {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 60px;
             position: relative;
-            min-height: 350px;
+            min-height: 400px;
         }
         
         .solution-icons {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            transition: all 0.5s ease;
+            gap: 60px;
             width: 100%;
             flex-wrap: wrap;
         }
@@ -405,12 +352,7 @@
             align-items: center;
             cursor: pointer;
             transition: all 0.5s ease;
-            width: 120px;
-            opacity: 1;
-        }
-        
-        .solution-icons:not(:hover) .solution-icon {
-            opacity: 1;
+            width: 140px;
         }
         
         .solution-icons:hover .solution-icon:not(:hover) {
@@ -419,13 +361,13 @@
         }
         
         .solution-icon i {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--turquoise);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             transition: all 0.3s ease;
-            background: rgba(0, 229, 196, 0.1);
-            width: 80px;
-            height: 80px;
+            background: rgba(0, 229, 196, 0.2);
+            width: 100px;
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -434,21 +376,21 @@
         
         .solution-icon:hover i {
             transform: scale(1.2);
-            background: var(--gradient);
-            color: var(--black);
-            box-shadow: 0 0 20px rgba(0, 229, 196, 0.5);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--purple);
+            box-shadow: 0 0 30px rgba(0, 229, 196, 0.6);
         }
         
         .solution-icon h3 {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--white);
             text-align: center;
-            transition: all 0.3s ease;
+            font-weight: 600;
         }
         
         .solution-content-container {
             position: absolute;
-            top: 150px;
+            top: 180px;
             left: 0;
             right: 0;
             display: flex;
@@ -459,9 +401,9 @@
         .solution-content-text {
             background: rgba(26, 16, 61, 0.95);
             border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--turquoise);
             max-width: 600px;
             text-align: center;
             opacity: 0;
@@ -477,39 +419,21 @@
         }
         
         .solution-content-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: var(--turquoise);
         }
         
         .solution-content-text p {
-            color: var(--light-gray);
-            font-size: 1.1rem;
+            color: var(--white);
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
         
-        /* CTA Section - Full Width */
+        /* CTA Section */
         .cta {
-            background: linear-gradient(135deg, var(--purple) 0%, var(--dark-purple) 100%);
+            background: var(--gradient);
             text-align: center;
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><circle fill="%2300e5c4" cx="500" cy="500" r="400"/></svg>');
-            background-size: cover;
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 1;
         }
         
         .cta h2 {
@@ -522,14 +446,15 @@
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 40px;
-            color: var(--light-gray);
+            color: var(--white);
+            opacity: 0.9;
         }
         
-        /* Footer - Full Width */
+        /* Footer */
         footer {
             background-color: var(--dark-purple);
             padding: 80px 0 30px;
-            border-top: 1px solid var(--gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .footer-content {
@@ -555,13 +480,15 @@
         }
         
         .footer-links a {
-            color: var(--light-gray);
+            color: var(--white);
             text-decoration: none;
             transition: color 0.3s;
+            opacity: 0.8;
         }
         
         .footer-links a:hover {
             color: var(--turquoise);
+            opacity: 1;
         }
         
         .contact-info {
@@ -577,9 +504,10 @@
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid var(--gray);
-            color: var(--light-gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--white);
             font-size: 0.9rem;
+            opacity: 0.8;
         }
         
         .legal-links {
@@ -594,34 +522,36 @@
         }
         
         .legal-links a {
-            color: var(--light-gray);
+            color: var(--white);
             text-decoration: none;
             transition: color 0.3s;
             font-size: 0.9rem;
+            opacity: 0.8;
         }
         
         .legal-links a:hover {
             color: var(--turquoise);
+            opacity: 1;
         }
         
         /* Responsive */
         @media (max-width: 968px) {
             .hero-box h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .feature-icons, .solution-icons {
-                gap: 20px;
+                gap: 30px;
             }
             
             .feature-icon, .solution-icon {
-                width: 100px;
+                width: 120px;
             }
             
             .feature-icon i, .solution-icon i {
-                width: 60px;
-                height: 60px;
-                font-size: 2rem;
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
             }
         }
         
@@ -635,20 +565,19 @@
             }
             
             .feature-icons, .solution-icons {
-                flex-wrap: wrap;
-                gap: 15px;
+                gap: 20px;
             }
             
             .feature-content-container, .solution-content-container {
-                top: 200px;
+                top: 220px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header - Full Width -->
-    <header id="header">
-        <div class="container">
+    <!-- Header - Full Width Band -->
+    <header>
+        <div class="header-container">
             <nav>
                 <div class="logo">
                     Providentia<span class="logo-dot"></span>
@@ -662,20 +591,18 @@
         </div>
     </header>
 
-    <!-- Hero Section - Full Width -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-box">
-                    <h1>Predictive Maintenance for Agriculture</h1>
-                    <p>From Reactive Breakdowns to Proactive Intelligence. Providentia is the AI-powered predictive maintenance platform that prevents equipment failures before they happen.</p>
-                    <a href="#contact" class="btn">Contact Us</a>
-                </div>
+            <div class="hero-box">
+                <h1>Predictive Maintenance for Agriculture</h1>
+                <p>From Reactive Breakdowns to Proactive Intelligence. Providentia is the AI-powered predictive maintenance platform that prevents equipment failures before they happen.</p>
+                <a href="#contact" class="btn">Contact Us</a>
             </div>
         </div>
     </section>
 
-    <!-- Features Section - Full Width -->
+    <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
             <div class="section-title">
@@ -741,52 +668,50 @@
         </div>
     </section>
 
-    <!-- Solution Section - Full Width -->
+    <!-- Solution Section -->
     <section id="solution" class="solution">
         <div class="container">
-            <div class="solution-content">
-                <div class="solution-box">
-                    <h3>The predictive intelligence infrastructure for agriculture</h3>
-                    <p>An always-on partner that watches every machine, learns its behavior, and alerts farmers before breakdowns happen.</p>
-                    <p>We built the maintenance expert we always needed after experiencing devastating equipment failures on our own family farm.</p>
+            <div class="solution-box">
+                <h3>The predictive intelligence infrastructure for agriculture</h3>
+                <p>An always-on partner that watches every machine, learns its behavior, and alerts farmers before breakdowns happen.</p>
+                <p>We built the maintenance expert we always needed after experiencing devastating equipment failures on our own family farm.</p>
+            </div>
+            
+            <div class="solution-interactive">
+                <div class="solution-icons">
+                    <div class="solution-icon" data-index="0">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Lives in your pocket</h3>
+                    </div>
+                    <div class="solution-icon" data-index="1">
+                        <i class="fas fa-comments"></i>
+                        <h3>Speaks your language</h3>
+                    </div>
+                    <div class="solution-icon" data-index="2">
+                        <i class="fas fa-eye"></i>
+                        <h3>Sees failures before they happen</h3>
+                    </div>
                 </div>
                 
-                <div class="solution-interactive">
-                    <div class="solution-icons">
-                        <div class="solution-icon" data-index="0">
-                            <i class="fas fa-mobile-alt"></i>
-                            <h3>Lives in your pocket</h3>
-                        </div>
-                        <div class="solution-icon" data-index="1">
-                            <i class="fas fa-comments"></i>
-                            <h3>Speaks your language</h3>
-                        </div>
-                        <div class="solution-icon" data-index="2">
-                            <i class="fas fa-eye"></i>
-                            <h3>Sees failures before they happen</h3>
-                        </div>
+                <div class="solution-content-container">
+                    <div class="solution-content-text" data-index="0">
+                        <h3>Lives in your pocket</h3>
+                        <p>Mobile-first design that works where you work</p>
                     </div>
-                    
-                    <div class="solution-content-container">
-                        <div class="solution-content-text" data-index="0">
-                            <h3>Lives in your pocket</h3>
-                            <p>Mobile-first design that works where you work</p>
-                        </div>
-                        <div class="solution-content-text" data-index="1">
-                            <h3>Speaks your language</h3>
-                            <p>Clear, actionable alerts in plain language, not technical jargon</p>
-                        </div>
-                        <div class="solution-content-text" data-index="2">
-                            <h3>Sees failures before they happen</h3>
-                            <p>Proactive maintenance scheduling based on actual equipment condition</p>
-                        </div>
+                    <div class="solution-content-text" data-index="1">
+                        <h3>Speaks your language</h3>
+                        <p>Clear, actionable alerts in plain language, not technical jargon</p>
+                    </div>
+                    <div class="solution-content-text" data-index="2">
+                        <h3>Sees failures before they happen</h3>
+                        <p>Proactive maintenance scheduling based on actual equipment condition</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section - Full Width -->
+    <!-- CTA Section -->
     <section id="contact" class="cta">
         <div class="container">
             <div class="cta-content">
@@ -797,7 +722,7 @@
         </div>
     </section>
 
-    <!-- Footer - Full Width -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -843,16 +768,6 @@
     </footer>
 
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
         // Interactive Features
         const featureIcons = document.querySelectorAll('.feature-icon');
         const featureContents = document.querySelectorAll('.feature-content');
