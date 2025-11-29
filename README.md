@@ -634,7 +634,6 @@
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#solution">How It Works</a></li>
-                    <li><a href="#demo">Demo</a></li>
                     <li><a href="#contact" class="btn">Contact Us</a></li>
                 </ul>
             </nav>
