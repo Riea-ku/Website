@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -218,7 +218,7 @@
         
         .feature-icon {
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -227,8 +227,8 @@
         
         /* Hide other icons */
         .feature-icon.dimmed {
-            opacity: 0.3;
-            transform: scale(0.9);
+            opacity: 0;
+            pointer-events: none;
         }
         
         .feature-icon i {
@@ -363,7 +363,7 @@
         
         .solution-icon {
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -372,8 +372,8 @@
         
         /* Hide other icons */
         .solution-icon.dimmed {
-            opacity: 0.3;
-            transform: scale(0.9);
+            opacity: 0;
+            pointer-events: none;
         }
         
         .solution-icon i {
@@ -785,15 +785,12 @@
     </footer>
 
     <script>
-        // Features Section Interaction - FIXED POPUP BEHAVIOR
+        // Features Section Interaction - FLOATING POPUP FIX
         const featureIcons = document.querySelectorAll('.feature-icon');
         const featurePopup = document.querySelector('.feature-popup');
-        let featureTimeout;
         
         featureIcons.forEach(icon => {
             icon.addEventListener('mouseenter', () => {
-                clearTimeout(featureTimeout);
-                
                 // Get content
                 const title = icon.dataset.title;
                 const desc = icon.dataset.desc;
@@ -816,48 +813,31 @@
                 // Add active class to hovered icon
                 icon.classList.add('active');
                 
-                // Dim other icons (but don't make them disappear completely)
+                // Hide other icons
                 featureIcons.forEach(i => {
                     if (i !== icon) i.classList.add('dimmed');
                 });
             });
             
             icon.addEventListener('mouseleave', () => {
-                // Set timeout to hide popup
-                featureTimeout = setTimeout(() => {
+                // If mouse leaves icon but enters popup → do nothing
+                featurePopup.addEventListener('mouseenter', () => {
+                    featurePopup.classList.add('visible');
+                });
+
+                featurePopup.addEventListener('mouseleave', () => {
                     featurePopup.classList.remove('visible');
-                    featureIcons.forEach(i => {
-                        i.classList.remove('active');
-                        i.classList.remove('dimmed');
-                    });
-                }, 100);
+                    featureIcons.forEach(i => i.classList.remove('dimmed'));
+                });
             });
         });
         
-        // Allow hovering over popup without closing it
-        featurePopup.addEventListener('mouseenter', () => {
-            clearTimeout(featureTimeout);
-        });
-        
-        featurePopup.addEventListener('mouseleave', () => {
-            featureTimeout = setTimeout(() => {
-                featurePopup.classList.remove('visible');
-                featureIcons.forEach(i => {
-                    i.classList.remove('active');
-                    i.classList.remove('dimmed');
-                });
-            }, 100);
-        });
-        
-        // Solution Section Interaction - FIXED POPUP BEHAVIOR
+        // Solution Section Interaction - FLOATING POPUP FIX
         const solutionIcons = document.querySelectorAll('.solution-icon');
         const solutionPopup = document.querySelector('.solution-popup');
-        let solutionTimeout;
         
         solutionIcons.forEach(icon => {
             icon.addEventListener('mouseenter', () => {
-                clearTimeout(solutionTimeout);
-                
                 // Get content
                 const title = icon.dataset.title;
                 const desc = icon.dataset.desc;
@@ -880,37 +860,23 @@
                 // Add active class to hovered icon
                 icon.classList.add('active');
                 
-                // Dim other icons (but don't make them disappear completely)
+                // Hide other icons
                 solutionIcons.forEach(i => {
                     if (i !== icon) i.classList.add('dimmed');
                 });
             });
             
             icon.addEventListener('mouseleave', () => {
-                // Set timeout to hide popup
-                solutionTimeout = setTimeout(() => {
-                    solutionPopup.classList.remove('visible');
-                    solutionIcons.forEach(i => {
-                        i.classList.remove('active');
-                        i.classList.remove('dimmed');
-                    });
-                }, 100);
-            });
-        });
-        
-        // Allow hovering over popup without closing it
-        solutionPopup.addEventListener('mouseenter', () => {
-            clearTimeout(solutionTimeout);
-        });
-        
-        solutionPopup.addEventListener('mouseleave', () => {
-            solutionTimeout = setTimeout(() => {
-                solutionPopup.classList.remove('visible');
-                solutionIcons.forEach(i => {
-                    i.classList.remove('active');
-                    i.classList.remove('dimmed');
+                // If mouse leaves icon but enters popup → do nothing
+                solutionPopup.addEventListener('mouseenter', () => {
+                    solutionPopup.classList.add('visible');
                 });
-            }, 100);
+
+                solutionPopup.addEventListener('mouseleave', () => {
+                    solutionPopup.classList.remove('visible');
+                    solutionIcons.forEach(i => i.classList.remove('dimmed'));
+                });
+            });
         });
     </script>
 </body>
