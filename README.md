@@ -13,6 +13,10 @@
             --light-purple: #5a34b8;
             --turquoise: #00e5c4;
             --light-turquoise: #4dfee8;
+            --black: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --gray: #2a2a2a;
+            --light-gray: #e5e5e5;
             --white: #ffffff;
             --gradient: linear-gradient(135deg, var(--purple) 0%, var(--turquoise) 100%);
         }
@@ -30,7 +34,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--white);
-            background: var(--gradient);
+            background-color: var(--black);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -146,13 +150,13 @@
         
         /* Hero Section */
         .hero {
-            background: var(--gradient);
+            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--black) 100%);
             text-align: center;
             padding-top: 140px;
         }
         
         .hero-box {
-            background: rgba(26, 16, 61, 0.8);
+            background: linear-gradient(145deg, var(--dark-purple), var(--gray));
             border-radius: 15px;
             padding: 60px 40px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -171,13 +175,12 @@
         .hero-box p {
             font-size: 1.25rem;
             margin-bottom: 30px;
-            color: var(--white);
-            opacity: 0.9;
+            color: var(--light-gray);
         }
         
-        /* Features Section - EXACT INTERACTION */
+        /* Features Section - FLOATING POPUP FIX */
         .features {
-            background: var(--gradient);
+            background-color: var(--black);
             position: relative;
         }
         
@@ -194,8 +197,7 @@
         }
         
         .section-title p {
-            color: var(--white);
-            opacity: 0.9;
+            color: var(--light-gray);
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.1rem;
@@ -203,7 +205,7 @@
         
         .features-section {
             position: relative;
-            text-align: center;
+            width: 100%;
             min-height: 400px;
         }
         
@@ -211,7 +213,6 @@
             display: flex;
             justify-content: center;
             gap: 40px;
-            transition: 0.3s ease;
             flex-wrap: wrap;
         }
         
@@ -224,15 +225,17 @@
             width: 140px;
         }
         
+        /* Hide other icons */
         .feature-icon.dimmed {
             opacity: 0;
+            pointer-events: none;
         }
         
         .feature-icon i {
             font-size: 3rem;
             color: var(--turquoise);
             margin-bottom: 15px;
-            background: rgba(0, 229, 196, 0.2);
+            background: rgba(0, 229, 196, 0.1);
             width: 100px;
             height: 100px;
             display: flex;
@@ -244,8 +247,8 @@
         
         .feature-icon.active i {
             transform: scale(1.2);
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--purple);
+            background: var(--gradient);
+            color: var(--black);
             box-shadow: 0 0 30px rgba(0, 229, 196, 0.6);
         }
         
@@ -256,27 +259,30 @@
             font-weight: 600;
         }
         
+        /* THE POPUP MUST FLOAT ON TOP */
         .feature-popup {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0.95);
-            opacity: 0;
-            max-width: 450px;
+            width: 380px;
             padding: 30px;
             background: rgba(26, 16, 61, 0.95);
-            border-radius: 14px;
+            border-radius: 16px;
             color: white;
-            display: none;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            border: 2px solid var(--turquoise);
             text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--turquoise);
+            z-index: 100;
         }
         
+        /* Visible popup */
         .feature-popup.visible {
-            display: block;
             opacity: 1;
+            pointer-events: auto;
             transform: translate(-50%, -50%) scale(1);
         }
         
@@ -287,19 +293,18 @@
         }
         
         .feature-popup p {
-            color: var(--white);
+            color: var(--light-gray);
             font-size: 1.1rem;
-            opacity: 0.9;
         }
         
-        /* Solution Section - EXACT INTERACTION */
+        /* Solution Section - FLOATING POPUP FIX */
         .solution {
-            background: var(--gradient);
+            background-color: var(--dark-gray);
             position: relative;
         }
         
         .solution-box {
-            background: rgba(26, 16, 61, 0.8);
+            background: linear-gradient(145deg, var(--dark-purple), var(--gray));
             border-radius: 15px;
             padding: 60px 50px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -317,15 +322,14 @@
         }
         
         .solution-box p {
-            color: var(--white);
+            color: var(--light-gray);
             font-size: 1.2rem;
             margin-bottom: 20px;
-            opacity: 0.9;
         }
         
         .solution-section {
             position: relative;
-            text-align: center;
+            width: 100%;
             min-height: 400px;
         }
         
@@ -333,7 +337,6 @@
             display: flex;
             justify-content: center;
             gap: 40px;
-            transition: 0.3s ease;
             flex-wrap: wrap;
         }
         
@@ -346,15 +349,17 @@
             width: 140px;
         }
         
+        /* Hide other icons */
         .solution-icon.dimmed {
             opacity: 0;
+            pointer-events: none;
         }
         
         .solution-icon i {
             font-size: 3rem;
             color: var(--turquoise);
             margin-bottom: 15px;
-            background: rgba(0, 229, 196, 0.2);
+            background: rgba(0, 229, 196, 0.1);
             width: 100px;
             height: 100px;
             display: flex;
@@ -366,8 +371,8 @@
         
         .solution-icon.active i {
             transform: scale(1.2);
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--purple);
+            background: var(--gradient);
+            color: var(--black);
             box-shadow: 0 0 30px rgba(0, 229, 196, 0.6);
         }
         
@@ -378,27 +383,30 @@
             font-weight: 600;
         }
         
+        /* THE POPUP MUST FLOAT ON TOP */
         .solution-popup {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0.95);
-            opacity: 0;
-            max-width: 450px;
+            width: 380px;
             padding: 30px;
             background: rgba(26, 16, 61, 0.95);
-            border-radius: 14px;
+            border-radius: 16px;
             color: white;
-            display: none;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            border: 2px solid var(--turquoise);
             text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--turquoise);
+            z-index: 100;
         }
         
+        /* Visible popup */
         .solution-popup.visible {
-            display: block;
             opacity: 1;
+            pointer-events: auto;
             transform: translate(-50%, -50%) scale(1);
         }
         
@@ -409,14 +417,13 @@
         }
         
         .solution-popup p {
-            color: var(--white);
+            color: var(--light-gray);
             font-size: 1.1rem;
-            opacity: 0.9;
         }
         
         /* CTA Section */
         .cta {
-            background: var(--gradient);
+            background: linear-gradient(135deg, var(--purple) 0%, var(--dark-purple) 100%);
             text-align: center;
         }
         
@@ -430,15 +437,14 @@
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 40px;
-            color: var(--white);
-            opacity: 0.9;
+            color: var(--light-gray);
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark-purple);
+            background-color: var(--black);
             padding: 80px 0 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--gray);
         }
         
         .footer-content {
@@ -464,15 +470,13 @@
         }
         
         .footer-links a {
-            color: var(--white);
+            color: var(--light-gray);
             text-decoration: none;
             transition: color 0.3s;
-            opacity: 0.8;
         }
         
         .footer-links a:hover {
             color: var(--turquoise);
-            opacity: 1;
         }
         
         .contact-info {
@@ -488,10 +492,9 @@
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--white);
+            border-top: 1px solid var(--gray);
+            color: var(--light-gray);
             font-size: 0.9rem;
-            opacity: 0.8;
         }
         
         .legal-links {
@@ -506,16 +509,14 @@
         }
         
         .legal-links a {
-            color: var(--white);
+            color: var(--light-gray);
             text-decoration: none;
             transition: color 0.3s;
             font-size: 0.9rem;
-            opacity: 0.8;
         }
         
         .legal-links a:hover {
             color: var(--turquoise);
-            opacity: 1;
         }
         
         /* Responsive */
@@ -537,6 +538,10 @@
                 height: 80px;
                 font-size: 2.5rem;
             }
+            
+            .feature-popup, .solution-popup {
+                width: 340px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -550,6 +555,11 @@
             
             .feature-icons, .solution-icons {
                 gap: 20px;
+            }
+            
+            .feature-popup, .solution-popup {
+                width: 300px;
+                padding: 25px;
             }
         }
     </style>
@@ -582,7 +592,7 @@
         </div>
     </section>
 
-    <!-- Features Section - EXACT INTERACTION -->
+    <!-- Features Section - FLOATING POPUP FIX -->
     <section id="features" class="features">
         <div class="container">
             <div class="section-title">
@@ -618,12 +628,13 @@
                     </div>
                 </div>
                 
+                <!-- POPUP IS OUTSIDE THE ICONS CONTAINER -->
                 <div class="feature-popup"></div>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section - EXACT INTERACTION -->
+    <!-- Solution Section - FLOATING POPUP FIX -->
     <section id="solution" class="solution">
         <div class="container">
             <div class="solution-box">
@@ -648,6 +659,7 @@
                     </div>
                 </div>
                 
+                <!-- POPUP IS OUTSIDE THE ICONS CONTAINER -->
                 <div class="solution-popup"></div>
             </div>
         </div>
@@ -710,7 +722,7 @@
     </footer>
 
     <script>
-        // Features Section Interaction - EXACT IMPLEMENTATION
+        // Features Section Interaction - FLOATING POPUP FIX
         const featureIcons = document.querySelectorAll('.feature-icon');
         const featurePopup = document.querySelector('.feature-popup');
         
@@ -732,25 +744,26 @@
                 // Add active class to hovered icon
                 icon.classList.add('active');
                 
-                // Dim other icons
+                // Hide other icons
                 featureIcons.forEach(i => {
                     if (i !== icon) i.classList.add('dimmed');
                 });
             });
             
             icon.addEventListener('mouseleave', () => {
-                // Hide popup
-                featurePopup.classList.remove('visible');
-                
-                // Remove active class
-                icon.classList.remove('active');
-                
-                // Reset icons
-                featureIcons.forEach(i => i.classList.remove('dimmed'));
+                // If mouse leaves icon but enters popup → do nothing
+                featurePopup.addEventListener('mouseenter', () => {
+                    featurePopup.classList.add('visible');
+                });
+
+                featurePopup.addEventListener('mouseleave', () => {
+                    featurePopup.classList.remove('visible');
+                    featureIcons.forEach(i => i.classList.remove('dimmed'));
+                });
             });
         });
         
-        // Solution Section Interaction - EXACT IMPLEMENTATION
+        // Solution Section Interaction - FLOATING POPUP FIX
         const solutionIcons = document.querySelectorAll('.solution-icon');
         const solutionPopup = document.querySelector('.solution-popup');
         
@@ -772,21 +785,22 @@
                 // Add active class to hovered icon
                 icon.classList.add('active');
                 
-                // Dim other icons
+                // Hide other icons
                 solutionIcons.forEach(i => {
                     if (i !== icon) i.classList.add('dimmed');
                 });
             });
             
             icon.addEventListener('mouseleave', () => {
-                // Hide popup
-                solutionPopup.classList.remove('visible');
-                
-                // Remove active class
-                icon.classList.remove('active');
-                
-                // Reset icons
-                solutionIcons.forEach(i => i.classList.remove('dimmed'));
+                // If mouse leaves icon but enters popup → do nothing
+                solutionPopup.addEventListener('mouseenter', () => {
+                    solutionPopup.classList.add('visible');
+                });
+
+                solutionPopup.addEventListener('mouseleave', () => {
+                    solutionPopup.classList.remove('visible');
+                    solutionIcons.forEach(i => i.classList.remove('dimmed'));
+                });
             });
         });
     </script>
