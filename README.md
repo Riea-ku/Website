@@ -139,7 +139,7 @@
         /* Sections - Full Width */
         section {
             width: 100%;
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
         .container {
@@ -153,94 +153,136 @@
             background: linear-gradient(135deg, var(--dark-purple) 0%, var(--gray) 100%);
             text-align: left;
             padding-top: 140px;
-            min-height: 500px;
+            min-height: 600px;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--purple) 0%, transparent 100%);
+            opacity: 0.3;
+            border-radius: 50%;
         }
         
         .hero-box {
             background: transparent;
             border-radius: 0;
-            padding: 0;
+            padding: 40px 0;
             box-shadow: none;
             border: none;
-            max-width: 100%;
+            max-width: 60%;
             margin: 0;
             width: 100%;
+            position: relative;
+            z-index: 2;
         }
         
         .hero-box h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 4rem;
+            margin-bottom: 25px;
             color: var(--white);
-            font-weight: 700;
+            font-weight: 800;
             max-width: 100%;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
         }
         
         .hero-box p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
             color: var(--light-gray);
-            max-width: 650px;
+            max-width: 100%;
             line-height: 1.8;
+            font-weight: 400;
         }
         
         /* Features Section - FLOATING POPUP FIX */
         .features {
             background: linear-gradient(135deg, var(--dark-purple) 0%, var(--black) 100%);
             position: relative;
+            padding: 120px 0 !important;
         }
         
         .section-title {
             text-align: left;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
         
         .section-title h2 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             color: var(--white);
-            margin-bottom: 15px;
-            font-weight: 700;
+            margin-bottom: 20px;
+            font-weight: 800;
             max-width: 100%;
+            letter-spacing: -0.5px;
         }
         
         .section-title p {
             color: var(--light-gray);
-            max-width: 100%;
+            max-width: 600px;
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 400;
         }
         
         .features-section {
             position: relative;
             width: 100%;
-            min-height: 600px;
+            min-height: 700px;
         }
         
         .feature-icons {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 50px;
             width: 100%;
         }
         
         .feature-icon {
             cursor: pointer;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             width: 100%;
-            background: rgba(26, 16, 61, 0.5);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 229, 196, 0.2);
-            transition: all 0.3s ease;
+            background: rgba(26, 16, 61, 0.4);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 229, 196, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 229, 196, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
         .feature-icon:hover {
-            background: rgba(26, 16, 61, 0.8);
-            border-color: rgba(0, 229, 196, 0.5);
+            background: rgba(26, 16, 61, 0.7);
+            border-color: rgba(0, 229, 196, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 229, 196, 0.1);
+        }
+        
+        .feature-icon:hover::before {
+            opacity: 1;
         }
         
         /* Hide other icons */
@@ -250,31 +292,36 @@
         }
         
         .feature-icon i {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--turquoise);
-            margin-bottom: 20px;
-            background: rgba(0, 229, 196, 0.1);
-            width: 70px;
-            height: 70px;
+            margin-bottom: 25px;
+            background: rgba(0, 229, 196, 0.12);
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
+            border-radius: 12px;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
         
         .feature-icon.active i {
-            transform: scale(1.1);
+            transform: scale(1.15);
             background: var(--gradient);
             color: var(--white);
-            box-shadow: 0 0 20px rgba(0, 229, 196, 0.4);
+            box-shadow: 0 0 30px rgba(0, 229, 196, 0.5);
         }
         
         .feature-icon h3 {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             color: var(--white);
             text-align: left;
             font-weight: 600;
+            position: relative;
+            z-index: 1;
+            line-height: 1.3;
         }
         
         /* THE POPUP MUST FLOAT ON TOP */
@@ -354,50 +401,71 @@
         }
         
         .solution-box h3 {
-            font-size: 2.8rem;
-            margin-bottom: 25px;
+            font-size: 3.2rem;
+            margin-bottom: 30px;
             color: var(--white);
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
         
         .solution-box p {
             color: var(--light-gray);
             font-size: 1.1rem;
             margin-bottom: 20px;
-            max-width: 100%;
+            max-width: 700px;
             line-height: 1.8;
+            font-weight: 400;
         }
         
         .solution-section {
             position: relative;
             width: 100%;
-            min-height: 600px;
+            min-height: 700px;
         }
         
         .solution-icons {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 50px;
             width: 100%;
         }
         
         .solution-icon {
             cursor: pointer;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             width: 100%;
-            background: rgba(26, 16, 61, 0.5);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 229, 196, 0.2);
-            transition: all 0.3s ease;
+            background: rgba(26, 16, 61, 0.4);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 229, 196, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 229, 196, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
         .solution-icon:hover {
-            background: rgba(26, 16, 61, 0.8);
-            border-color: rgba(0, 229, 196, 0.5);
+            background: rgba(26, 16, 61, 0.7);
+            border-color: rgba(0, 229, 196, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 229, 196, 0.1);
+        }
+        
+        .solution-icon:hover::before {
+            opacity: 1;
         }
         
         /* Hide other icons */
@@ -407,31 +475,36 @@
         }
         
         .solution-icon i {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--turquoise);
-            margin-bottom: 20px;
-            background: rgba(0, 229, 196, 0.1);
-            width: 70px;
-            height: 70px;
+            margin-bottom: 25px;
+            background: rgba(0, 229, 196, 0.12);
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
+            border-radius: 12px;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
         
         .solution-icon.active i {
-            transform: scale(1.1);
+            transform: scale(1.15);
             background: var(--gradient);
             color: var(--white);
-            box-shadow: 0 0 20px rgba(0, 229, 196, 0.4);
+            box-shadow: 0 0 30px rgba(0, 229, 196, 0.5);
         }
         
         .solution-icon h3 {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             color: var(--white);
             text-align: left;
             font-weight: 600;
+            position: relative;
+            z-index: 1;
+            line-height: 1.3;
         }
         
         /* THE POPUP MUST FLOAT ON TOP */
@@ -497,20 +570,23 @@
         .cta {
             background: linear-gradient(135deg, var(--purple) 0%, var(--dark-purple) 100%);
             text-align: left;
+            padding: 120px 0 !important;
         }
         
         .cta h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-weight: 700;
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            font-weight: 800;
             max-width: 100%;
+            letter-spacing: -0.5px;
         }
         
         .cta p {
             font-size: 1.2rem;
-            max-width: 100%;
+            max-width: 600px;
             margin: 0 0 40px 0;
             color: var(--light-gray);
+            font-weight: 400;
         }
         
         /* Footer - FIXED ALIGNMENT */
