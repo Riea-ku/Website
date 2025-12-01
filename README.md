@@ -86,6 +86,11 @@
             font-weight: 700;
             color: var(--white);
             letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+        
+        .logo:hover {
+            color: var(--white);
         }
         
         .logo-dot {
@@ -167,6 +172,11 @@
             color: var(--white);
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1002;
+        }
+        
+        .mobile-menu {
+            display: none;
         }
         
         /* Sections - Full Width */
@@ -725,32 +735,43 @@
             
             .mobile-menu {
                 position: fixed;
-                top: 80px;
+                top: 0;
                 left: 0;
                 right: 0;
+                bottom: 0;
                 background: rgba(26, 16, 61, 0.98);
                 backdrop-filter: blur(10px);
-                padding: 20px;
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
                 align-items: center;
-                gap: 20px;
-                transform: translateY(-100%);
+                gap: 30px;
+                transform: translateX(-100%);
                 opacity: 0;
                 transition: all 0.3s ease;
-                z-index: 999;
+                z-index: 1001;
+                padding: 20px;
             }
             
             .mobile-menu.active {
-                transform: translateY(0);
+                transform: translateX(0);
                 opacity: 1;
             }
             
             .mobile-menu a {
                 color: var(--white);
                 text-decoration: none;
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 padding: 10px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .mobile-menu .btn {
+                margin-top: 20px;
+                font-size: 1.2rem;
+                padding: 16px 32px;
             }
             
             .typewriter-title {
@@ -823,9 +844,9 @@
     <header>
         <div class="header-container">
             <nav>
-                <div class="logo">
+                <a href="#hero" class="logo">
                     Providentia<span class="logo-dot"></span>
-                </div>
+                </a>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#solution">How It Works</a></li>
@@ -1032,12 +1053,21 @@
         function setupMobileMenu() {
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const mobileMenu = document.querySelector('.mobile-menu');
+            const body = document.body;
             
-            mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 mobileMenu.classList.toggle('active');
                 mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
                     ? '<i class="fas fa-times"></i>' 
                     : '<i class="fas fa-bars"></i>';
+                
+                // Prevent scrolling when menu is open
+                if (mobileMenu.classList.contains('active')) {
+                    body.style.overflow = 'hidden';
+                } else {
+                    body.style.overflow = '';
+                }
             });
             
             // Close mobile menu when clicking a link
@@ -1045,7 +1075,19 @@
                 link.addEventListener('click', () => {
                     mobileMenu.classList.remove('active');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    body.style.overflow = '';
                 });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mobileMenu.classList.contains('active') && 
+                    !mobileMenu.contains(e.target) && 
+                    !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    body.style.overflow = '';
+                }
             });
         }
         
