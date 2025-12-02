@@ -997,7 +997,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; Copyright 2023 Providentia. All Rights Reserved.</p>
+                <p>&copy; Copyright 2025 Providentia. All Rights Reserved.</p>
                 <ul class="legal-links">
                     <li><a href="#">Terms of Service</a></li>
                     <li><a href="#">Privacy Policy</a></li>
