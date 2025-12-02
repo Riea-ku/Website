@@ -282,78 +282,6 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
         <a href="#contact" class="btn">Contact Us</a>
     </div>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Pricing</h2>
-                <p>Simple, transparent plans that protect your farm — start small and scale as you grow.</p>
-            </div>
-
-            <div class="pricing-grid">
-                <div class="plan-card">
-                    <div class="plan-badge">Basic</div>
-                    <div class="plan-price">$29</div>
-                    <div class="plan-period">per month • 1 equipment type</div>
-                    <ul class="plan-features">
-                        <li>Essential failure detection & alerts</li>
-                        <li>Basic maintenance scheduling</li>
-                        <li>Email support</li>
-                    </ul>
-                    <div class="plan-cta"><a class="btn" href="#contact">Get Basic</a></div>
-                </div>
-
-                <div class="plan-card plan-popular">
-                    <div class="plan-badge">Professional</div>
-                    <div class="plan-price">$79</div>
-                    <div class="plan-period">per month • All equipment types</div>
-                    <ul class="plan-features">
-                        <li>Full AI co-pilot with predictive analytics</li>
-                        <li>Advanced diagnostics & priority alerts</li>
-                        <li>SMS + email support</li>
-                    </ul>
-                    <div class="plan-cta"><a class="btn" href="#contact">Get Professional</a></div>
-                </div>
-
-                <div class="plan-card">
-                    <div class="plan-badge">Enterprise</div>
-                    <div class="plan-price">$199</div>
-                    <div class="plan-period">per month • Farm-wide</div>
-                    <ul class="plan-features">
-                        <li>Farm-wide operational intelligence</li>
-                        <li>Dedicated support team</li>
-                        <li>Custom alerts & SLA</li>
-                    </ul>
-                    <div class="plan-cta"><a class="btn" href="#contact">Contact Sales</a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust & Token Network Section -->
-    <section id="trust" class="trust">
-        <div class="trust-inner">
-            <div class="trust-card">
-                <h3>Trust-First Data Partnership</h3>
-                <p>Providentia is built on the principle that farmers control their data. We start by offering protection with zero data-sharing requirements.</p>
-                <p>Over time, farmers may opt in to anonymized data sharing that powers community intelligence. Participation is entirely voluntary and transparent.</p>
-                <p>Participating farms receive token rewards for anonymized contributions, access to community dashboards, and improved local models — a true neighborhood network of trust.</p>
-                <div class="trust-cta"><button class="btn" id="open-optin">Learn More / Opt-In</button></div>
-            </div>
-
-            <aside class="trust-card">
-                <h3>How it works</h3>
-                <ul class="plan-features">
-                    <li>Opt-in anonymized telemetry only</li>
-                    <li>Tokens issued for approved contributions</li>
-                    <li>Local-model improvements & neighborhood alerts</li>
-                    <li>Full transparency: what is shared and how it's used</li>
-                </ul>
-                <p class="muted">We never sell raw farm data. Manufacturers or insurers access aggregated insights only when farmers opt in.</p>
-            </aside>
-        </div>
-    </section>
-
     <section id="hero" class="hero">
         <div class="container">
             <div class="hero-box">
@@ -458,6 +386,78 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pricing</h2>
+                <p>Simple, transparent plans that protect your farm — start small and scale as you grow.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="plan-card">
+                    <div class="plan-badge">Basic</div>
+                    <div class="plan-price">$29</div>
+                    <div class="plan-period">per month • 1 equipment type</div>
+                    <ul class="plan-features">
+                        <li>Essential failure detection & alerts</li>
+                        <li>Basic maintenance scheduling</li>
+                        <li>Email support</li>
+                    </ul>
+                    <div class="plan-cta"><a class="btn" href="#contact">Get Basic</a></div>
+                </div>
+
+                <div class="plan-card plan-popular">
+                    <div class="plan-badge">Professional</div>
+                    <div class="plan-price">$79</div>
+                    <div class="plan-period">per month • All equipment types</div>
+                    <ul class="plan-features">
+                        <li>Full AI co-pilot with predictive analytics</li>
+                        <li>Advanced diagnostics & priority alerts</li>
+                        <li>SMS + email support</li>
+                    </ul>
+                    <div class="plan-cta"><a class="btn" href="#contact">Get Professional</a></div>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-badge">Enterprise</div>
+                    <div class="plan-price">$199</div>
+                    <div class="plan-period">per month • Farm-wide</div>
+                    <ul class="plan-features">
+                        <li>Farm-wide operational intelligence</li>
+                        <li>Dedicated support team</li>
+                        <li>Custom alerts & SLA</li>
+                    </ul>
+                    <div class="plan-cta"><a class="btn" href="#contact">Contact Sales</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Token Network Section -->
+    <section id="trust" class="trust">
+        <div class="trust-inner">
+            <div class="trust-card">
+                <h3>Trust-First Data Partnership</h3>
+                <p>Providentia is built on the principle that farmers control their data. We start by offering protection with zero data-sharing requirements.</p>
+                <p>Over time, farmers may opt in to anonymized data sharing that powers community intelligence. Participation is entirely voluntary and transparent.</p>
+                <p>Participating farms receive token rewards for anonymized contributions, access to community dashboards, and improved local models — a true neighborhood network of trust.</p>
+                <div class="trust-cta"><button class="btn" id="open-optin">Learn More / Opt-In</button></div>
+            </div>
+
+            <aside class="trust-card">
+                <h3>How it works</h3>
+                <ul class="plan-features">
+                    <li>Opt-in anonymized telemetry only</li>
+                    <li>Tokens issued for approved contributions</li>
+                    <li>Local-model improvements & neighborhood alerts</li>
+                    <li>Full transparency: what is shared and how it's used</li>
+                </ul>
+                <p class="muted">We never sell raw farm data. Manufacturers or insurers access aggregated insights only when farmers opt in.</p>
+            </aside>
         </div>
     </section>
 
