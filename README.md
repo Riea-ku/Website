@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -279,7 +279,7 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
         <a href="#solution">How It Works</a>
         <a href="#pricing">Pricing</a>
         <a href="#trust">Trust &amp; Data</a>
-        <a href="#contact" class="btn">Contact Us</a>
+        <a href="#contact">Contact Us</a>
     </div>
 
     <section id="hero" class="hero">
@@ -292,7 +292,7 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
                 <a href="#contact" class="btn">Contact Us</a>
 
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1600&auto=format&fit=crop" alt="farm irrigation and solar pump"/>
+                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1600&auto=format&fit=crop" alt="Smart farm monitoring system"/>
                 </div>
             </div>
         </div>
@@ -341,9 +341,9 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
     <section id="solution" class="solution">
         <div class="container">
             <div class="solution-box">
-                <h3>The predictive intelligence infrastructure for agriculture</h3>
+                <h3>The Predictive Intelligence Infrastructure for Agriculture</h3>
                 <p>An always-on partner that watches every machine, learns its behavior, and alerts farmers before breakdowns happen.</p>
-                <p>Complex AI, made simple enough for people with dirt on their hands.</p>
+                <p>Enterprise-grade AI, designed for simplicity and reliability in the field.</p>
             </div>
 
             <div class="solution-section">
@@ -373,16 +373,16 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
 
                 <div class="demo-grid">
                     <div class="demo-card">
-                        <img src="https://images.unsplash.com/photo-1504881549-3441d6e07b57?q=80&w=1200&auto=format&fit=crop" alt="pump sensor"/>
-                        <div class="card-body">Simulation: early bearing-wear signature detected 10 days before failure.</div>
+                        <img src="https://images.unsplash.com/photo-1504881549-3441d6e07b57?q=80&w=1200&auto=format&fit=crop" alt="Equipment sensor monitoring"/>
+                        <div class="card-body">Predictive Analytics: Early warning system detects equipment degradation 10+ days before failure.</div>
                     </div>
                     <div class="demo-card">
-                        <img src="https://images.unsplash.com/photo-1517976487492-0b0a56f0a7f6?q=80&w=1200&auto=format&fit=crop" alt="tractor in field"/>
-                        <div class="card-body">Field-style dashboard with prioritized maintenance actions.</div>
+                        <img src="https://images.unsplash.com/photo-1517976487492-0b0a56f0a7f6?q=80&w=1200&auto=format&fit=crop" alt="Farm dashboard interface"/>
+                        <div class="card-body">Intuitive Dashboard: Prioritized alerts and maintenance actions at a glance.</div>
                     </div>
                     <div class="demo-card">
-                        <img src="https://images.unsplash.com/photo-1518823886215-2b25f6c7f3e2?q=80&w=1200&auto=format&fit=crop" alt="iot sensors"/>
-                        <div class="card-body">Sensor integration pipeline: live telemetry to predictive engine.</div>
+                        <img src="https://images.unsplash.com/photo-1518823886215-2b25f6c7f3e2?q=80&w=1200&auto=format&fit=crop" alt="IoT sensor technology"/>
+                        <div class="card-body">Real-Time Integration: Sensor data flows seamlessly to our predictive engine.</div>
                     </div>
                 </div>
             </div>
@@ -400,8 +400,8 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
             <div class="pricing-grid">
                 <div class="plan-card">
                     <div class="plan-badge">Basic</div>
-                    <div class="plan-price">$29</div>
-                    <div class="plan-period">per month • 1 equipment type</div>
+                    <div class="plan-price">$29/month</div>
+                    <div class="plan-period">1 equipment type</div>
                     <ul class="plan-features">
                         <li>Essential failure detection & alerts</li>
                         <li>Basic maintenance scheduling</li>
@@ -412,8 +412,8 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
 
                 <div class="plan-card plan-popular">
                     <div class="plan-badge">Professional</div>
-                    <div class="plan-price">$79</div>
-                    <div class="plan-period">per month • All equipment types</div>
+                    <div class="plan-price">$79/month</div>
+                    <div class="plan-period">All equipment types</div>
                     <ul class="plan-features">
                         <li>Full AI co-pilot with predictive analytics</li>
                         <li>Advanced diagnostics & priority alerts</li>
@@ -424,8 +424,8 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
 
                 <div class="plan-card">
                     <div class="plan-badge">Enterprise</div>
-                    <div class="plan-price">$199</div>
-                    <div class="plan-period">per month • Farm-wide</div>
+                    <div class="plan-price">$199/month</div>
+                    <div class="plan-period">Farm-wide</div>
                     <ul class="plan-features">
                         <li>Farm-wide operational intelligence</li>
                         <li>Dedicated support team</li>
@@ -449,7 +449,7 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
             </div>
 
             <aside class="trust-card">
-                <h3>How it works</h3>
+                <h3>How It Works</h3>
                 <ul class="plan-features">
                     <li>Opt-in anonymized telemetry only</li>
                     <li>Tokens issued for approved contributions</li>
@@ -464,8 +464,8 @@ footer { background-color: var(--dark-purple); padding: 80px 0 36px; border-top:
     <section id="contact" class="cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to protect your business from unexpected breakdowns?</h2>
-                <p>See a live demo or schedule a walkthrough with Meryem, our founder and predictive systems expert.</p>
+                <h2>Ready to Transform Equipment Maintenance?</h2>
+                <p>Schedule a walkthrough with our team or explore the platform with a live demo.</p>
                 <a href="https://providentia.pythonanywhere.com/" class="btn" target="_blank">View Live Demo</a>
             </div>
         </div>
